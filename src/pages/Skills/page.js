@@ -49,7 +49,7 @@ const Skills = () => {
                 : device === 'tablet'
                 ? 'gap-2'
                 : 'gap-4 '
-            } p-1 rounded-md shadow-md shadow-slate-600 dark:shadow-cyan-900`}
+            } p-1 rounded-md shadow-inner shadow-slate-200 dark:shadow-slate-50`}
           >
             <div className='w-[25%] bg-white p-1 rounded-md'>
               <Image

@@ -15,40 +15,48 @@ const Bio = () => {
         </span>
         <h1
           className={`
-          dark:text-white font-semibold
+          text-black font-semibold
           ${
             device === 'mobile'
               ? 'text-4xl'
               : device === 'tablet'
               ? 'text-5xl'
-              : 'text-6xl'
+              : 'text-6xl dark:text-white '
           }
         `}
         >
           Bharath
         </h1>
         <p
-          className={`dark:text-white font-light uppercase
+          className={`text-black font-light uppercase
           ${
             device === 'mobile'
               ? 'text-lg'
               : device === 'tablet'
               ? 'text-xl'
-              : 'text-2xl'
+              : 'text-2xl dark:text-white'
           }
         `}
         >
           Hunkunda Sreenivasa
         </p>
       </hgroup>
-      <address className='flex flex-wrap items-start justify-start gap-3 not-italic'>
-        <p className='flex items-start justify-center gap-1'>
+      <address className='w-[100%] flex flex-wrap items-start justify-center not-italic text-black dark:text-white border-y-2 border-slate-900 dark:border-slate-200'>
+        <p className='xl:w-[33.33%] flex items-center justify-center gap-2 p-3 '>
           <span className='material-symbols-outlined text-blue-900 dark:text-sky-700'>
             location_on
           </span>
           <span>Greater Seattle Area</span>
         </p>
-        <p className='flex items-start justify-center gap-1'>
+        <p
+          className={`xl:w-[33.33%] flex items-center justify-center gap-2 p-3
+          ${
+            device === 'laptop'
+              ? 'border-x-2 border-slate-900 dark:border-slate-200 hover:bg-slate-900/50 transition-all duration-700'
+              : ''
+          }
+        `}
+        >
           <span className='material-symbols-outlined text-blue-900 dark:text-sky-700'>
             mail
           </span>
@@ -56,7 +64,7 @@ const Bio = () => {
             <a href='mailto:hsbharath01@gmail.com'>hsbharath01@gmail.com</a>
           </span>
         </p>
-        <p className='flex items-start justify-center gap-1'>
+        <p className='xl:w-[33.33%] flex items-center justify-center gap-2 p-3'>
           <span className='material-symbols-outlined text-blue-900 dark:text-sky-700'>
             phone_android
           </span>

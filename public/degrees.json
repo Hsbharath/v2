@@ -1,0 +1,22 @@
+[
+    {
+        "start": 2015,
+        "end": 2016,
+        "college": "Kent State University",
+        "place": "Kent, OH, USA",
+        "degree": "Master of Science",
+        "stream": "Computer & Information Science",
+        "grade": "3.7 GPA",
+        "image": "/Icons/Masters.png"
+    },
+    {
+        "start": 2007,
+        "end": 2011,
+        "college": "Dr. T. Thimmaiah Institute Of Technology, VTU",
+        "place": "KGF, Karnataka, India",
+        "degree": "Bachelor of Engineering",
+        "stream": "Information Science",
+        "grade": "First Class",
+        "image": "/Icons/Bachelors.png"
+    }
+]

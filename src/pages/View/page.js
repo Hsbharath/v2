@@ -110,9 +110,7 @@ const View = () => {
       <div id='volup-btn'></div>
       <div id='voldw-btn'></div>
       <div
-        className={`w-[100%] h-full flex items-start justify-start rounded-[36px] ${
-          device !== 'tablet' && device !== 'mobile' ? '' : 'bg-white'
-        } overflow-hidden overflow-y-scroll transition-all duration-700 group p-3`}
+        className={`w-[100%] h-full flex items-start justify-start rounded-[36px] overflow-hidden overflow-y-scroll transition-all duration-700 group p-3`}
       >
         <div className='w-[100%] h-full flex flex-col items-start justify-start gap-12'>
           <Bio />
