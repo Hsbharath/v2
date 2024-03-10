@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Role = () => {
+const Role = () => {
   return (
     <div className='w-full flex flex-col items-start justify-start gap-6'>
       <p className='text-blue-900 dark:text-sky-700 text-xl md:text-2xl font-medium uppercase'>
@@ -17,3 +17,5 @@ export const Role = () => {
     </div>
   );
 };
+
+export default Role;

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 import PageTitle from '../PageTitle/page';
 
-export const Skills = () => {
+const Skills = () => {
   const device = useSelector((state) => state.device.value);
   const [skills, setSkills] = useState([]);
 
@@ -49,7 +49,7 @@ export const Skills = () => {
                 : device === 'tablet'
                 ? 'gap-2'
                 : 'gap-4 '
-            } p-1 rounded-md shadow-md shadow-slate-600 dark:shadow-slate-200`}
+            } p-1 rounded-md shadow-md shadow-slate-600 dark:shadow-cyan-900`}
           >
             <div className='w-[25%] bg-white p-1 rounded-md'>
               <Image
@@ -77,3 +77,5 @@ export const Skills = () => {
     </div>
   );
 };
+
+export default Skills;

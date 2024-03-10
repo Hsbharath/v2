@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
-import { ToggleView } from '../ToggleView/page';
-import { View } from '../View/page';
+import ToggleView from '../ToggleView/page';
+import View from '../View/page';
 
 export const Main = () => {
   return (

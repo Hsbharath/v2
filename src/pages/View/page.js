@@ -2,12 +2,12 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { Bio } from '../Bio/page';
-import { Education } from '../Education/page';
-import { Experience } from '../Experience/page';
-import { Skills } from '../Skills/page';
+import Bio from '../Bio/page';
+import Education from '../Education/page';
+import Experience from '../Experience/page';
+import Skills from '../Skills/page';
 
-export const View = () => {
+const View = () => {
   const device = useSelector((state) => state.device.value);
   const size = {
     mobile: {
@@ -124,3 +124,5 @@ export const View = () => {
     </div>
   );
 };
+
+export default View;

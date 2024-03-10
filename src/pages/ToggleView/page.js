@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
-export const ToggleView = () => {
+const ToggleView = () => {
   const dispatch = useDispatch();
 
   return (
@@ -36,3 +36,5 @@ export const ToggleView = () => {
     </div>
   );
 };
+
+export default ToggleView;

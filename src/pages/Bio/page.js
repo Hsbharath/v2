@@ -2,9 +2,9 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { Role } from '../Role';
+import Role from '../Role/page';
 
-export const Bio = () => {
+const Bio = () => {
   const device = useSelector((state) => state.device.value);
 
   return (
@@ -69,3 +69,5 @@ export const Bio = () => {
     </div>
   );
 };
+
+export default Bio;
