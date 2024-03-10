@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { useSelector } from 'react-redux';
 
-import PageTitle from '../PageTitle';
+import PageTitle from '../PageTitle/page';
 
 export const Skills = () => {
   const device = useSelector((state) => state.device.value);
