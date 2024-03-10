@@ -31,3 +31,19 @@ body {
     text-wrap: balance;
   }
 }
+
+.stroke-letters {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(30, 58, 138, 0.1);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

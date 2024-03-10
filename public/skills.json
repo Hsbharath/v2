@@ -1,0 +1,142 @@
+[
+    {
+      "name": "JavaScript",
+      "colorCode": "#F7DF1E",
+      "image": "JavaScript.png"
+    },
+    {
+      "name": "TypeScript",
+      "colorCode": "#007ACC",
+      "image": "TypeScript.png"
+    },
+    {
+      "name": "React",
+      "colorCode": "#61DAFB",
+      "image": "React.png"
+    },
+    {
+      "name": "Angular",
+      "colorCode": "#DD0031",
+      "image": "Angular.png"
+    },
+    {
+      "name": "HTML",
+      "colorCode": "#E34F26",
+      "image": "HTML.png"
+    },
+    {
+      "name": "CSS",
+      "colorCode": "#1572B6",
+      "image": "CSS.png"
+    },
+    {
+      "name": "Bootstrap",
+      "colorCode": "#7952B3",
+      "image": "Bootstrap.png"
+    },
+    {
+      "name": "Tailwind",
+      "colorCode": "#06B6D4",
+      "image": "Tailwind.png"
+    },
+    {
+      "name": "Bulma",
+      "colorCode": "#00D1B2",
+      "image": "Bulma.png"
+    },
+    {
+      "name": "jQuery",
+      "colorCode": "#0769AD",
+      "image": "jQuery.png"
+    },
+    {
+      "name": "Node.js",
+      "colorCode": "#68A063",
+      "image": "Node.png"
+    },
+    {
+      "name": "Express",
+      "colorCode": "#000000",
+      "image": "Express.png"
+    },
+    {
+      "name": "Redux",
+      "colorCode": "#764ABC",
+      "image": "Redux.png"
+    },
+    {
+      "name": "NgRx",
+      "colorCode": "#BA2BD2",
+      "image": "Ngrx.png"
+    },
+    {
+      "name": "MSSQL",
+      "colorCode": "#CC2927",
+      "image": "MSSQL.png"
+    },
+    {
+      "name": "MySQL",
+      "colorCode": "#4479A1",
+      "image": "MySQL.png"
+    },
+    {
+      "name": "GraphQL",
+      "colorCode": "#E10098",
+      "image": "GraphQL.png"
+    },
+    {
+      "name": "PostgreSQL",
+      "colorCode": "#336791",
+      "image": "PostgreSQL.png"
+    },
+    {
+      "name": "MongoDB",
+      "colorCode": "#47A248",
+      "image": "MongoDB.png"
+    },
+    {
+      "name": "Redis",
+      "colorCode": "#DC382D",
+      "image": "Redis.png"
+    },
+    {
+      "name": "Azure",
+      "colorCode": "#0089D6",
+      "image": "Azure.png"
+    },
+    {
+      "name": "AWS",
+      "colorCode": "#232F3E",
+      "image": "AWS.png"
+    },
+    {
+      "name": "Git",
+      "colorCode": "#F05032",
+      "image": "Git.png"
+    },
+    {
+      "name": "Bitbucket",
+      "colorCode": "#205081",
+      "image": "Bitbucket.png"
+    },
+    {
+      "name": "Docker",
+      "colorCode": "#2496ED",
+      "image": "Docker.png"
+    },
+    {
+      "name": "Jest",
+      "colorCode": "#C21325",
+      "image": "Jest.png"
+    },
+    {
+      "name": "Jasmine",
+      "colorCode": "#8A4182",
+      "image": "Jasmine.png"
+    },
+    {
+      "name": "Power BI",
+      "colorCode": "#F2C811",
+      "image": "PowerBI.png"
+    }
+]
