@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 
-import { ToggleView } from '../ToggleView';
-import { View } from '../View';
+import { ToggleView } from '../ToggleView/page';
+import { View } from '../View/page';
 
 export const Main = () => {
   return (

@@ -2,10 +2,10 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import { Bio } from '../Bio';
-import { Education } from '../Education';
-import { Experience } from '../Experience';
-import { Skills } from '../Skills';
+import { Bio } from '../Bio/page';
+import { Education } from '../Education/page';
+import { Experience } from '../Experience/page';
+import { Skills } from '../Skills/page';
 
 export const View = () => {
   const device = useSelector((state) => state.device.value);
