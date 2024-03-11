@@ -26,20 +26,30 @@ const Skills = () => {
 
   return (
     <div
-      className={`relative w-[100%] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700
-      ${device === 'laptop' ? 'min-h-[100vh]' : ''}
-      `}
+      className={`relative w-[100%] min-h-[100vh] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700`}
     >
       <PageTitle title={'Skills'} />
       <div
-        className={`w-full grid 
-        ${
-          device === 'mobile'
-            ? 'md:grid-cols-1 gap-1'
-            : device === 'tablet'
-            ? 'lg:grid-cols-3 gap-2'
-            : 'xl:grid-cols-4 gap-3'
-        }`}
+        className='w-full grid gap-2 md:grid-cols-1 md:gap-2 lg:grid-cols-3 lg:gap-3 xl:grid-cols-4 xl:gap-4
+        [&>div]:flex
+        [&>div]:items-center
+        [&>div]:justify-between
+        [&>div]:gap-4
+        [&>div]:p-1
+        [&>div]:rounded-md
+        [&>div]:shadow-inner
+        [&>div]:shadow-slate-200/90
+        [&>div]:dark:shadow-slate-50
+        [&>div>.image]:w-[50px]
+        [&>div>.image]:bg-white
+        [&>div>.image]:p-1
+        [&>div>.image]:rounded-md
+        [&>div>p]:w-[calc(100%_-_50px)]
+        [&>div>p]:text-white
+        [&>div>p]:text-lg
+        [&>div>p]:font-medium
+        [&>div>p]:text-left
+      '
       >
         {skills.map((skill, index) => (
           <div
@@ -47,15 +57,8 @@ const Skills = () => {
             style={{
               background: skill.colorCode,
             }}
-            className={`flex items-center justify-between ${
-              device === 'mobile'
-                ? 'gap-2'
-                : device === 'tablet'
-                ? 'gap-3'
-                : 'gap-4 '
-            } p-1 rounded-md shadow-inner shadow-slate-200/30 dark:shadow-slate-50`}
           >
-            <div className='w-[50px] bg-white p-1 rounded-md'>
+            <div className='image'>
               <Image
                 src={'/Icons/' + skill.image}
                 width={50}
@@ -64,17 +67,7 @@ const Skills = () => {
                 className='mx-auto'
               />
             </div>
-            <p
-              className={`w-[calc(100%_-_50px)] text-white font-medium text-left ${
-                device === 'mobile'
-                  ? 'text-md'
-                  : device === 'tablet'
-                  ? 'text-lg'
-                  : 'text-xl '
-              }`}
-            >
-              {skill.name}
-            </p>
+            <p>{skill.name}</p>
           </div>
         ))}
       </div>

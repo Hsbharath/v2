@@ -8,97 +8,48 @@ const Bio = () => {
   const device = useSelector((state) => state.device.value);
   return (
     <div
-      className={`relative w-[100%] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700
-      ${device === 'laptop' ? 'min-h-[100vh]' : 'pt-12'}
-      `}
+      className={`relative w-[100%] min-h-[100vh] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700`}
     >
       <div className='w-[100%]'>
         <hgroup className='flex flex-col text-left mb-6'>
           <span
-            className={`
-          ${
-            device === 'mobile' ? 'pb-3' : device === 'tablet' ? 'pb-4' : 'pb-6'
-          }
-          text-lg font-medium text-blue-900 dark:text-sky-500`}
+            className={`'pb-6 text-lg font-medium text-blue-900 dark:text-sky-500`}
           >
             Hello, I am
           </span>
-          <h1
-            className={`font-semibold 
-          ${
-            device === 'mobile'
-              ? 'text-4xl '
-              : device === 'tablet'
-              ? 'text-5xl'
-              : 'text-6xl text-black dark:text-white'
-          }
-        `}
-          >
+          <h1 className={`font-semibold text-6xl text-black dark:text-white`}>
             Bharath
           </h1>
-          <p
-            className={`font-light uppercase
-          ${
-            device === 'mobile'
-              ? 'text-lg'
-              : device === 'tablet'
-              ? 'text-xl'
-              : 'text-2xl dark:text-white'
-          }
-        `}
-          >
+          <p className={`font-light uppercase text-2xl dark:text-white`}>
             Hunkunda Sreenivasa
           </p>
         </hgroup>
         <address
-          className={`w-[100%] flex flex-wrap items-center justify-center not-italic  border-y-2 border-slate-900 dark:border-slate-200
-          ${device === 'laptop' ? 'text-black dark:text-white' : ''}
-        `}
+          className='w-[100%] flex flex-col md:flex-row items-start justify-start md:items-center md:justify-center text-black dark:text-white not-italic  border-y-2 border-slate-900 dark:border-slate-200
+          [&_p]:flex
+          [&_p]:items-start
+          [&_p]:justify-start
+          [&_p]:md:items-center
+          [&_p]:md:justify-center
+          [&_p]:gap-2
+          [&_p]:p-3
+          [&_p.center]:md:border-x-2
+          [&_p.center]:md:border-slate-900
+          [&_p.center]:md:dark:border-slate-200
+          [&_span]:text-blue-900
+          [&_span]:dark:text-sky-500'
         >
-          <p
-            className={`flex gap-2  
-          ${
-            device === 'mobile'
-              ? 'w-[100%] items-start justify-start py-2'
-              : 'w-[30%] items-center justify-center p-3'
-          }`}
-          >
-            <span className='material-symbols-outlined text-blue-900 dark:text-sky-500'>
-              location_on
-            </span>
-            <span>Seattle, WA</span>
+          <p>
+            <span className='material-symbols-outlined'>location_on</span>
+            Seattle, WA
           </p>
-          <p
-            className={`flex gap-2
-          ${
-            device === 'mobile'
-              ? 'w-[100%] items-start justify-start py-2'
-              : 'w-[40%] items-center justify-center border-x-2 border-slate-900 dark:border-slate-200 hover:bg-sky-400/40 hover:dark:bg-slate-900/50 p-3'
-          }
-        `}
-          >
-            <span className='material-symbols-outlined text-blue-900 dark:text-sky-500'>
-              mail
-            </span>
-            <span>
-              <a href='mailto:hsbharath01@gmail.com'>hsbharath01@gmail.com</a>
-            </span>
+          <p className='center'>
+            <span className='material-symbols-outlined'>mail</span>
+            <a href='mailto:hsbharath01@gmail.com'>hsbharath01@gmail.com</a>
           </p>
-          <p
-            className={`flex gap-2 
-          ${
-            device === 'mobile'
-              ? 'w-[100%] items-start justify-start py-2'
-              : 'w-[30%] items-center justify-center hover:bg-sky-400/40 hover:dark:bg-slate-900/50 p-3'
-          }
-        `}
-          >
-            <span className='material-symbols-outlined text-blue-900 dark:text-sky-500'>
-              phone_android
-            </span>
-            <span>
-              <a href='tel:+12342815147'>+1 234-281-5147</a>
-            </span>
+          <p>
+            <span className='material-symbols-outlined'>phone_android</span>
+            <a href='tel:+12342815147'>+1 234-281-5147</a>
           </p>
         </address>
       </div>
