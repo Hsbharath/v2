@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import Image from 'next/image';
+import { useSelector } from 'react-redux';
 
 import PageTitle from '../PageTitle/page';
 
 const Education = () => {
+  const device = useSelector((state) => state.device.value);
   const [degrees, setDegrees] = useState([]);
 
   useEffect(() => {
@@ -22,7 +23,11 @@ const Education = () => {
   }, []);
 
   return (
-    <div className='w-[100%] xl:max-w-4xl xl:min-h-[100vh] flex flex-col items-start justify-center gap-6 mx-auto'>
+    <div
+      className={`relative w-[100%] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700
+      ${device === 'laptop' ? 'min-h-[100vh]' : ''}
+      `}
+    >
       <PageTitle title={'Education'} />
       {degrees.map((degree, key) => (
         <div

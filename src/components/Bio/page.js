@@ -7,21 +7,24 @@ import Role from '../Role/page';
 const Bio = () => {
   const device = useSelector((state) => state.device.value);
   return (
-    <div className='relative w-[100%] h-[100vh] flex flex-col items-start justify-center gap-6 mx-auto bg-blue-400/40 p-3'>
-      <div className='w-[100%] p-3'>
+    <div
+      className={`relative w-[100%] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700
+      ${device === 'laptop' ? 'min-h-[100vh]' : 'pt-12'}
+      `}
+    >
+      <div className='w-[100%]'>
         <hgroup className='flex flex-col text-left mb-6'>
           <span
             className={`
           ${
             device === 'mobile' ? 'pb-3' : device === 'tablet' ? 'pb-4' : 'pb-6'
           }
-          text-lg font-medium text-blue-900 dark:text-sky-700`}
+          text-lg font-medium text-blue-900 dark:text-sky-500`}
           >
             Hello, I am
           </span>
           <h1
-            className={`
-          text-black font-semibold
+            className={`font-semibold transition-all duration-700 
           ${
             device === 'mobile'
               ? 'text-4xl'
@@ -34,7 +37,7 @@ const Bio = () => {
             Bharath
           </h1>
           <p
-            className={`text-black font-light uppercase
+            className={`font-light uppercase transition-all duration-700
           ${
             device === 'mobile'
               ? 'text-lg'
@@ -47,31 +50,30 @@ const Bio = () => {
             Hunkunda Sreenivasa
           </p>
         </hgroup>
-        <address className='w-[100%] flex flex-wrap items-start justify-center not-italic text-black dark:text-white border-y-2 border-slate-900 dark:border-slate-200'>
+        <address className='w-[100%] flex flex-wrap items-center justify-center not-italic text-black dark:text-white border-y-2 border-slate-900 dark:border-slate-200'>
           <p
-            className={`
+            className={`flex gap-2 transition-all duration-700 
           ${
             device === 'mobile'
               ? 'w-[100%] items-start justify-start py-2'
-              : 'items-end p-3'
-          }
-          flex gap-2`}
+              : 'w-[30%] items-center justify-center p-3'
+          }`}
           >
-            <span className='material-symbols-outlined text-blue-900 dark:text-sky-700'>
+            <span className='material-symbols-outlined text-blue-900 dark:text-sky-500'>
               location_on
             </span>
             <span>Seattle, WA</span>
           </p>
           <p
-            className={`flex gap-2
+            className={`flex gap-2 transition-all duration-700
           ${
             device === 'mobile'
               ? 'w-[100%] items-start justify-start py-2'
-              : 'items-center border-x-2 border-slate-900 dark:border-slate-200 hover:bg-sky-400/40 hover:dark:bg-slate-900/50 transition-all duration-700  p-3'
+              : 'w-[40%] items-center justify-center border-x-2 border-slate-900 dark:border-slate-200 hover:bg-sky-400/40 hover:dark:bg-slate-900/50 transition-all duration-700  p-3'
           }
         `}
           >
-            <span className='material-symbols-outlined text-blue-900 dark:text-sky-700'>
+            <span className='material-symbols-outlined text-blue-900 dark:text-sky-500'>
               mail
             </span>
             <span>
@@ -79,15 +81,15 @@ const Bio = () => {
             </span>
           </p>
           <p
-            className={`flex gap-2
+            className={`flex gap-2 transition-all duration-700
           ${
             device === 'mobile'
               ? 'w-[100%] items-start justify-start py-2'
-              : ' hover:bg-sky-400/40 hover:dark:bg-slate-900/50 transition-all duration-700 p-3'
+              : 'w-[30%] items-center justify-center hover:bg-sky-400/40 hover:dark:bg-slate-900/50 transition-all duration-700 p-3'
           }
         `}
           >
-            <span className='material-symbols-outlined text-blue-900 dark:text-sky-700'>
+            <span className='material-symbols-outlined text-blue-900 dark:text-sky-500'>
               phone_android
             </span>
             <span>

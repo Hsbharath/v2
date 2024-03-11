@@ -7,12 +7,16 @@ const Role = () => {
 
   return (
     <div className='w-full flex flex-col items-start justify-start gap-6'>
-      <p className='text-blue-900 dark:text-sky-700 text-xl md:text-2xl font-medium uppercase'>
+      <p
+        className={`text-blue-900 dark:text-sky-500 font-medium uppercase
+        ${device === 'laptop' ? 'text-lg' : 'text-md'}
+      `}
+      >
         Web Developer
       </p>
       <p
         className={`dark:text-white text-left font-light
-        ${device === 'laptop' ? 'text-xl' : 'text-md'}
+        ${device === 'laptop' ? 'text-lg' : 'text-md'}
       `}
       >
         Experienced web developer with 7 years of expertise in front-end and

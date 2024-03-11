@@ -25,16 +25,20 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className='w-[100%] xl:max-w-4xl flex flex-col items-start justify-center gap-6 mx-auto'>
+    <div
+      className={`relative w-[100%] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700
+      ${device === 'laptop' ? 'min-h-[100vh]' : ''}
+      `}
+    >
       <PageTitle title={'Skills'} />
       <div
         className={`w-full grid 
         ${
           device === 'mobile'
-            ? 'md:grid-cols-1 gap-2'
+            ? 'md:grid-cols-1 gap-1'
             : device === 'tablet'
-            ? 'lg:grid-cols-3 gap-3'
-            : 'xl:grid-cols-4 gap-4'
+            ? 'lg:grid-cols-3 gap-2'
+            : 'xl:grid-cols-4 gap-3'
         }`}
       >
         {skills.map((skill, index) => (
@@ -45,13 +49,13 @@ const Skills = () => {
             }}
             className={`flex items-center justify-between ${
               device === 'mobile'
-                ? 'gap-1'
-                : device === 'tablet'
                 ? 'gap-2'
+                : device === 'tablet'
+                ? 'gap-3'
                 : 'gap-4 '
-            } p-1 rounded-md shadow-inner shadow-slate-200 dark:shadow-slate-50`}
+            } p-1 rounded-md shadow-inner shadow-slate-200/30 dark:shadow-slate-50`}
           >
-            <div className='w-[25%] bg-white p-1 rounded-md'>
+            <div className='w-[50px] bg-white p-1 rounded-md'>
               <Image
                 src={'/Icons/' + skill.image}
                 width={50}
@@ -61,7 +65,7 @@ const Skills = () => {
               />
             </div>
             <p
-              className={`w-[75%] text-white font-medium text-left ${
+              className={`w-[calc(100%_-_50px)] text-white font-medium text-left ${
                 device === 'mobile'
                   ? 'text-md'
                   : device === 'tablet'
