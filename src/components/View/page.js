@@ -9,45 +9,15 @@ import Skills from '../Skills/page';
 
 const View = () => {
   const device = useSelector((state) => state.device.value);
-  const size = {
-    mobile: {
-      width: '300px',
-      height: '600px',
-      border: 2,
-      borderColor: 'gray-800/90',
-      darkBg: 'black',
-      overflow: 'none',
-    },
-    tablet: {
-      width: '700px',
-      height: '900px',
-      border: 2,
-      borderColor: 'gray-800/90',
-      darkBg: 'black',
-      overflow: 'none',
-    },
-    laptop: {
-      width: '100%',
-      height: '100%',
-      border: 0,
-      borderColor: 'transparent',
-      darkBg: 'transparent',
-      overflow: 'hidden',
-    },
-  };
   return (
     <div
       className={`relative
-            w-[${size[device].width}]
-            h-[${size[device].height}]
-            dark:bg-${size[device].darkBg}
-            border-${size[device].border}
-            border-${size[device].borderColor}
-            overflow-${size[device].overflow}
-            ${device !== 'tablet' && device !== 'mobile' ? '' : 'bg-black'}
-            ${device !== 'tablet' && device !== 'mobile' ? 'p-0' : 'p-3'}
             ${
-              device !== 'tablet' && device !== 'mobile' ? '' : 'rounded-[48px]'
+              device === 'mobile'
+                ? 'w-[300px] h-[600px] bg-black border-2 border-gray-800/90 rounded-[48px] transition-all duration-400 p-3'
+                : device === 'tablet'
+                ? 'w-[700px] h-[900px] bg-black border-2 border-gray-800/90 rounded-[48px] transition-all duration-400 p-3'
+                : 'w-[100%] h-[100%] transition-all duration-400 p-3'
             }
             flex
             items-center
@@ -110,7 +80,15 @@ const View = () => {
       <div id='volup-btn'></div>
       <div id='voldw-btn'></div>
       <div
-        className={`w-[100%] h-full flex items-start justify-start rounded-[36px] overflow-hidden overflow-y-scroll transition-all duration-700 group p-3`}
+        className={`
+        ${
+          device === 'mobile'
+            ? 'bg-white w-[100%]'
+            : device === 'tablet'
+            ? 'bg-white w-[100%]'
+            : 'p-3 max-w-4xl'
+        }
+        h-full flex items-start justify-start rounded-[36px] overflow-hidden overflow-y-scroll transition-all duration-700 group`}
       >
         <div className='w-[100%] h-full flex flex-col items-start justify-start gap-12'>
           <Bio />
