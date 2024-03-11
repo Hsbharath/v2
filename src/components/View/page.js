@@ -6,7 +6,7 @@ import Bio from '../Bio/page';
 import Education from '../Education/page';
 import Experience from '../Experience/page';
 import Skills from '../Skills/page';
-
+import ThemeSwitch from '../ThemeSwitch/page';
 const View = () => {
   const device = useSelector((state) => state.device.value);
   return (
@@ -83,9 +83,9 @@ const View = () => {
         className={`
         ${
           device === 'mobile'
-            ? 'bg-sky-600/20 w-[100%]'
+            ? 'bg-white w-[100%]'
             : device === 'tablet'
-            ? 'bg-sky-600/20 w-[100%]'
+            ? 'bg-white w-[100%]'
             : 'p-3 max-w-4xl'
         }
         h-full flex items-start justify-start rounded-[36px] overflow-hidden overflow-y-scroll transition-all duration-700 group`}

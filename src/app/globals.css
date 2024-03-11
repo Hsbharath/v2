@@ -32,6 +32,12 @@ body {
   }
 }
 
+@layer base {
+  .main {
+    @apply dark:bg-slate-800;
+  }
+}
+
 .stroke-letters {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: rgba(30, 58, 138, 0.1);

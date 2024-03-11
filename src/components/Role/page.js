@@ -15,8 +15,8 @@ const Role = () => {
         Web Developer
       </p>
       <p
-        className={`dark:text-white text-left font-light
-        ${device === 'laptop' ? 'text-lg' : 'text-md'}
+        className={`text-left font-light
+        ${device === 'laptop' ? 'text-lg dark:text-white ' : 'text-md'}
       `}
       >
         Experienced web developer with 7 years of expertise in front-end and

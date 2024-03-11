@@ -4,6 +4,7 @@ import { Inter, Merriweather } from 'next/font/google';
 
 import './globalicon.css';
 import './globals.css';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-In' });
 const merri = Merriweather({
@@ -21,9 +22,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <StoreProvider>
-      <html lang='en'>
+      <html lang='en' suppressHydrationWarning>
         <body className={`${inter.variable} ${merri.variable} font-In`}>
-          {children}
+          <Providers>{children}</Providers>
         </body>
       </html>
     </StoreProvider>

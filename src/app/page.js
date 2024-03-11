@@ -2,7 +2,7 @@ import Main from '../components/Main/page';
 
 export default function Home() {
   return (
-    <main className='relative w-screen min-h-[100vh]'>
+    <main className='main relative w-screen min-h-[100vh]'>
       <div
         className='fixed top-0 left-0 w-screen h-[100vh] flex items-center justify-center overflow-hidden
         before:absolute

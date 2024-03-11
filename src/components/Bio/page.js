@@ -24,20 +24,20 @@ const Bio = () => {
             Hello, I am
           </span>
           <h1
-            className={`font-semibold transition-all duration-700 
+            className={`font-semibold 
           ${
             device === 'mobile'
-              ? 'text-4xl'
+              ? 'text-4xl '
               : device === 'tablet'
               ? 'text-5xl'
-              : 'text-6xl dark:text-white '
+              : 'text-6xl text-black dark:text-white'
           }
         `}
           >
             Bharath
           </h1>
           <p
-            className={`font-light uppercase transition-all duration-700
+            className={`font-light uppercase
           ${
             device === 'mobile'
               ? 'text-lg'
@@ -50,9 +50,13 @@ const Bio = () => {
             Hunkunda Sreenivasa
           </p>
         </hgroup>
-        <address className='w-[100%] flex flex-wrap items-center justify-center not-italic text-black dark:text-white border-y-2 border-slate-900 dark:border-slate-200'>
+        <address
+          className={`w-[100%] flex flex-wrap items-center justify-center not-italic  border-y-2 border-slate-900 dark:border-slate-200
+          ${device === 'laptop' ? 'text-black dark:text-white' : ''}
+        `}
+        >
           <p
-            className={`flex gap-2 transition-all duration-700 
+            className={`flex gap-2  
           ${
             device === 'mobile'
               ? 'w-[100%] items-start justify-start py-2'
@@ -65,11 +69,11 @@ const Bio = () => {
             <span>Seattle, WA</span>
           </p>
           <p
-            className={`flex gap-2 transition-all duration-700
+            className={`flex gap-2
           ${
             device === 'mobile'
               ? 'w-[100%] items-start justify-start py-2'
-              : 'w-[40%] items-center justify-center border-x-2 border-slate-900 dark:border-slate-200 hover:bg-sky-400/40 hover:dark:bg-slate-900/50 transition-all duration-700  p-3'
+              : 'w-[40%] items-center justify-center border-x-2 border-slate-900 dark:border-slate-200 hover:bg-sky-400/40 hover:dark:bg-slate-900/50 p-3'
           }
         `}
           >
@@ -81,11 +85,11 @@ const Bio = () => {
             </span>
           </p>
           <p
-            className={`flex gap-2 transition-all duration-700
+            className={`flex gap-2 
           ${
             device === 'mobile'
               ? 'w-[100%] items-start justify-start py-2'
-              : 'w-[30%] items-center justify-center hover:bg-sky-400/40 hover:dark:bg-slate-900/50 transition-all duration-700 p-3'
+              : 'w-[30%] items-center justify-center hover:bg-sky-400/40 hover:dark:bg-slate-900/50 p-3'
           }
         `}
           >
