@@ -25,18 +25,9 @@ const Education = () => {
   return (
     <div
       className={`relative w-[100%] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700
-      ${device === 'laptop' ? 'min-h-[100vh]' : ''}
-      `}
+      ${device === 'laptop' ? 'min-h-[100vh]' : ''}`}
     >
       <PageTitle title={'Education'} />
-      {degrees.map((degree, key) => (
-        <div
-          key={key}
-          className='w-[100%] flex flex-col xl:flex-row items-start justify-center gap-4'
-        >
-          <div className=''></div>
-        </div>
-      ))}
     </div>
   );
 };

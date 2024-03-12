@@ -6,13 +6,9 @@ const PageTitle = ({ title }) => {
   const device = useSelector((state) => state.device.value);
 
   return (
-    <p
-      className={`text-blue-900 dark:text-sky-500 font-semibold uppercase
-    ${device === 'laptop' ? 'text-xl' : 'text-lg'}
-    `}
-    >
+    <h4 className='heading text-blue-900 dark:text-sky-500 font-semibold uppercase'>
       {title}
-    </p>
+    </h4>
   );
 };
 

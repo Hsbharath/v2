@@ -27,7 +27,10 @@ export default function ThemeSwitch() {
 
   if (resolvedTheme === 'dark') {
     return (
-      <span class='material-symbols-outlined' onClick={() => setTheme('light')}>
+      <span
+        className='material-symbols-outlined'
+        onClick={() => setTheme('light')}
+      >
         dark_mode
       </span>
     );
@@ -35,7 +38,10 @@ export default function ThemeSwitch() {
 
   if (resolvedTheme === 'light') {
     return (
-      <span class='material-symbols-outlined' onClick={() => setTheme('dark')}>
+      <span
+        className='material-symbols-outlined'
+        onClick={() => setTheme('dark')}
+      >
         light_mode
       </span>
     );
