@@ -26,11 +26,19 @@ const Skills = () => {
 
   return (
     <div
-      className={`relative w-[100%] min-h-[100vh] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700`}
+      className={`relative w-[100%] flex flex-col items-start justify-center gap-6 mx-auto p-3 transition-all duration-700
+      ${device === 'laptop' ? 'min-h-[100vh]' : ''}`}
     >
       <PageTitle title={'Skills'} />
       <div
-        className='w-full grid gap-2 md:grid-cols-1 md:gap-2 lg:grid-cols-3 lg:gap-3 xl:grid-cols-4 xl:gap-4
+        className={`w-full   
+        ${
+          device === 'mobile'
+            ? 'grid gap-2'
+            : device === 'tablet'
+            ? 'grid grid-cols-3 gap-2'
+            : 'grid grid-cols-4 gap-2'
+        }
         [&>div]:flex
         [&>div]:items-center
         [&>div]:justify-between
@@ -49,7 +57,7 @@ const Skills = () => {
         [&>div>p]:text-lg
         [&>div>p]:font-medium
         [&>div>p]:text-left
-      '
+      `}
       >
         {skills.map((skill, index) => (
           <div

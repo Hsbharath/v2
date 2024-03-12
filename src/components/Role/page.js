@@ -17,7 +17,7 @@ const Role = () => {
     [&_p]:dark:text-white'
     >
       <PageTitle title={'Web Developer'} />
-      <p>
+      <p className='paragraph'>
         Experienced web developer with 7 years of expertise in front-end and
         back-end development. Skilled in building responsive websites and web
         applications, with a focus on usability. Strong problem-solving
