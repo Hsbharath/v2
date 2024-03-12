@@ -1,8 +1,10 @@
-import Main from '../components/Main/page';
+import Main from '../components/Main/page'; // Importing the Main component
 
+// Default export of the Home component, responsible for rendering the main content of the home page
 export default function Home() {
   return (
     <main className='main relative w-screen min-h-[100vh]'>
+      {/* Background elements for visual effect */}
       <div
         className='fixed top-0 left-0 w-screen h-[100vh] flex items-center justify-center overflow-hidden
         before:absolute
@@ -31,6 +33,7 @@ export default function Home() {
         after:border-2
         after:dark:bg-blue-600/20'
       ></div>
+      {/* Rendering the Main component */}
       <Main />
     </main>
   );
