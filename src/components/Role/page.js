@@ -1,11 +1,11 @@
-import React from 'react';
-
+import React from 'react'; // Importing React library
 import { useSelector } from 'react-redux';
 
-import PageTitle from '../PageTitle/page';
+import PageTitle from '../PageTitle/page'; // Importing PageTitle component
 
+// Definition of Role component, responsible for displaying information about a specific role
 const Role = () => {
-  const device = useSelector((state) => state.device.value);
+  const device = useSelector((state) => state.device.value); // Getting device size from Redux state
 
   return (
     <div
@@ -16,7 +16,9 @@ const Role = () => {
     [&_p]:text-black
     [&_p]:dark:text-white'
     >
+      {/* Displaying the title of the role using PageTitle component */}
       <PageTitle title={'Web Developer'} />
+      {/* Description of the role */}
       <p className='paragraph'>
         Experienced web developer with 7 years of expertise in front-end and
         back-end development. Skilled in building responsive websites and web
@@ -29,4 +31,4 @@ const Role = () => {
   );
 };
 
-export default Role;
+export default Role; // Exporting Role component as default

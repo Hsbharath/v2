@@ -1,58 +1,63 @@
 'use client';
 
-import { changeDevice } from '@/store/reducers/deviceReducer';
-
+// Importing necessary functions and components
+import { changeDevice } from '@/store/reducers/deviceReducer'; // Importing the changeDevice action from the deviceReducer
 import React, { useEffect, useState } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux'; // Importing useDispatch and useSelector hooks from react-redux
 import ToggleView from '../ToggleView/page';
-import View from '../View/page';
 
+import View from '../View/page'; // Importing View component
+
+// Main component definition
 const Main = () => {
-  const dispatch = useDispatch();
-  const selectedSection = useSelector((state) => state.section.value);
-  const [deviceSize, setDeviceSize] = useState(null);
+  const dispatch = useDispatch(); // Initializing dispatch hook
+  const selectedSection = useSelector((state) => state.section.value); // Getting selected section from Redux state
+  const [deviceSize, setDeviceSize] = useState(null); // Initializing deviceSize state variable using useState hook
 
   useEffect(() => {
     // If selected section is available in Redux state, scroll to it
     if (selectedSection) {
-      const sectionElement = document.getElementById(selectedSection);
+      const sectionElement = document.getElementById(selectedSection); // Getting the DOM element of the selected section
       if (sectionElement) {
-        sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Smooth scrolling to the selected section
       }
     }
 
     const getDeviceSize = () => {
       if (typeof window !== 'undefined') {
+        // Checking if the window object is available
         if (window.matchMedia('(max-width: 767px)').matches) {
-          return 'mobile';
+          return 'mobile'; // Returning 'mobile' if the window width is less than or equal to 767px
         } else if (window.matchMedia('(max-width: 1023px)').matches) {
-          return 'tablet';
+          return 'tablet'; // Returning 'tablet' if the window width is less than or equal to 1023px
         } else {
-          return 'laptop';
+          return 'laptop'; // Returning 'laptop' for larger window widths
         }
       }
-      return null;
+      return null; // Returning null if window object is not available
     };
 
-    setDeviceSize(getDeviceSize());
+    setDeviceSize(getDeviceSize()); // Setting initial device size using getDeviceSize function
 
     const handleResize = () => {
-      const newSize = getDeviceSize();
+      const newSize = getDeviceSize(); // Getting new device size on window resize
       if (newSize !== deviceSize) {
-        dispatch(changeDevice(newSize));
-        setDeviceSize(newSize);
+        // If the new size is different from the current size
+        dispatch(changeDevice(newSize)); // Dispatching changeDevice action with the new size
+        setDeviceSize(newSize); // Updating deviceSize state variable
       }
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize); // Adding event listener for window resize
 
+    // Cleanup function to remove event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize); // Removing event listener on component unmount
     };
-  }, [deviceSize, dispatch, selectedSection]);
+  }, [deviceSize, dispatch, selectedSection]); // Dependencies for useEffect hook
 
+  // Rendering ToggleView and View components
   return (
     <div className='relative w-full min-h-[100vh] flex items-center justify-center'>
       <ToggleView />
@@ -61,4 +66,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Main; // Exporting Main component as default
