@@ -12,9 +12,9 @@ const Role = () => {
       className='w-full flex flex-col items-start justify-start gap-6
     [&_p]:text-md 
     [&_p]:lg:text-lg
-    [&_p]:xl:text-xl
     [&_p]:text-black
-    [&_p]:dark:text-white'
+    [&_p]:dark:text-white
+    [&_p]:font-light'
     >
       {/* Displaying the title of the role using PageTitle component */}
       <PageTitle title={'Web Developer'} />

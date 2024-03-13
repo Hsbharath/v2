@@ -18,22 +18,18 @@ const Bio = () => {
       `}
     >
       <div className='w-[100%]'>
+        {/* Greeting */}
+        <p className='px-1 mb-3 text-lg font-medium text-blue-900 dark:text-sky-500'>
+          Hello, I am
+        </p>
         {/* Group of heading elements */}
         <hgroup className='flex flex-col text-left mb-6'>
-          {/* Greeting */}
-          <span
-            className={`'pb-6 text-lg font-medium text-blue-900 dark:text-sky-500`}
-          >
-            Hello, I am
-          </span>
           {/* Name */}
-          <h1 className='title font-semibold text-black dark:text-white'>
+          <h1 className='title font-semibold text-black dark:text-white leading-10'>
             Bharath
           </h1>
           {/* Additional info */}
-          <p
-            className={`subtitle font-light uppercase text-black dark:text-white`}
-          >
+          <p className={`subtitle font-light text-black dark:text-white`}>
             Hunkunda Sreenivasa
           </p>
         </hgroup>

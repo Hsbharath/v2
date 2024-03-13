@@ -43,7 +43,7 @@ const Skills = () => {
         className={`w-full   
         ${
           device === 'mobile'
-            ? 'grid gap-2'
+            ? 'grid grid-cols-1 gap-2'
             : device === 'tablet'
             ? 'grid grid-cols-3 gap-2'
             : 'grid grid-cols-4 gap-2'
