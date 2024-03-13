@@ -6,7 +6,7 @@ const PageTitle = ({ title }) => {
   const device = useSelector((state) => state.device.value); // Getting device size from Redux state
 
   return (
-    <h4 className='heading text-blue-900 dark:text-sky-500 font-semibold uppercase'>
+    <h4 className='heading text-blue-900 dark:text-sky-500 font-medium uppercase'>
       {title} {/* Displaying the title */}
     </h4>
   );

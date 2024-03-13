@@ -18,7 +18,7 @@ const View = () => {
           device === 'mobile'
             ? 'mobile bg-slate-800 dark:bg-black border-2 border-slate-900 dark:border-slate-900/90 rounded-[48px] transition-all duration-400 px-2'
             : device === 'tablet'
-            ? 'tablet bg-slate-800 dark:bg-black border-2 border-slate-900 dark:border-slate-900/90 rounded-[48px] transition-all duration-400 px-2 mt-[50px]'
+            ? 'tablet bg-slate-800 dark:bg-black border-2 border-slate-900 dark:border-slate-900/90 rounded-[48px] transition-all duration-400 px-2 my-[50px]'
             : 'laptop border-2 border-transparent transition-all duration-400 p-3'
         }
         flex
@@ -101,19 +101,19 @@ const View = () => {
         `}
         >
           {/* Bio section */}
-          <div id='bio'>
+          <div id='bio' className='w-[100%]'>
             <Bio />
           </div>
           {/* Skills section */}
-          <div id='skills'>
+          <div id='skills' className='w-[100%]'>
             <Skills />
           </div>
           {/* Experience section */}
-          <div id='experience'>
+          <div id='experience' className='w-[100%]'>
             <Experience />
           </div>
           {/* Education section */}
-          <div id='education'>
+          <div id='education' className='w-[100%]'>
             <Education />
           </div>
         </div>

@@ -65,7 +65,7 @@ html {
   font-size: 18px;
 }
 .mobile .heading {
-  font-size: 21px;
+  font-size: 18px;
 }
 .mobile .paragraph {
   font-size: 16px;
@@ -82,10 +82,10 @@ html {
   font-size: 24px;
 }
 .tablet .heading {
-  font-size: 26px;
+  font-size: 21px;
 }
 .tablet .paragraph {
-  font-size: 19px;
+  font-size: 18px;
 }
 .laptop {
   width: 100%;
@@ -95,11 +95,11 @@ html {
   font-size: 48px;
 }
 .laptop .subtitle {
-  font-size: 26px;
+  font-size: 24px;
 }
 .laptop .heading {
-  font-size: 28px;
+  font-size: 22px;
 }
 .laptop .paragraph {
-  font-size: 21px;
+  font-size: 19px;
 }
