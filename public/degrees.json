@@ -7,7 +7,8 @@
         "degree": "Master of Science",
         "stream": "Computer & Information Science",
         "grade": "3.7 GPA",
-        "image": "/Icons/Masters.png"
+        "image": "/Icons/Masters.png",
+        "courses": ["Web Design and Development", "Data Science", "DBMS", "Mobile App Development", "Project Management & Dynamics"]
     },
     {
         "start": 2007,
@@ -17,6 +18,7 @@
         "degree": "Bachelor of Engineering",
         "stream": "Information Science",
         "grade": "First Class",
-        "image": "/Icons/Bachelors.png"
+        "image": "/Icons/Bachelors.png",
+        "courses": ["C Programming", "Data Structures", "Unix and Shell Programming", "C++", "DBMS", "Data Mining", "Programming in Web",  "Basic Java", "Basic C#" ]
     }
 ]
