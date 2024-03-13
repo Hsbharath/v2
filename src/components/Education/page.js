@@ -37,8 +37,8 @@ const Education = () => {
         {degrees.map((degree, key) => (
           <div
             key={key}
-            className={`w-[100%] flex items-center justify-start mb-6
-            ${device === 'mobile' ? 'flex-col' : 'flex-row'}`}
+            className={`w-[100%] flex justify-start transition-all duration-700 mb-6
+            ${device === 'mobile' ? 'flex-col' : 'flex-row items-center'}`}
           >
             <div
               className={`
