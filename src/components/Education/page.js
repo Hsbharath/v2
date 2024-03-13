@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'; // Importing React library a
 import { useSelector } from 'react-redux';
 
 import PageTitle from '../PageTitle/page'; // Importing PageTitle component
+import Image from 'next/image';
 
 // Definition of Education component, responsible for displaying education information
 const Education = () => {
@@ -32,12 +33,69 @@ const Education = () => {
       <PageTitle title={'Education'} />
 
       {/* Displaying degrees list */}
-      <div className='w-[100%]'>
+      <div className='w-[100%] flex flex-col items-center justify-start gap-4'>
         {degrees.map((degree, key) => (
-          <div key={key} className='w-[100%]'>
-            <span>{degree.start}</span>
-            <span>{degree.end}</span>
-            <span>{degree.college}</span>
+          <div
+            key={key}
+            className={`w-[100%] flex items-center justify-start mb-6
+            ${device === 'mobile' ? 'flex-col' : 'flex-row'}`}
+          >
+            <div
+              className={`
+            ${
+              device === 'mobile'
+                ? 'w-[100%] justify-start'
+                : 'w-[50%] z-50 justify-start'
+            }
+            flex flex-col items-start gap-1 text-black dark:text-white
+            `}
+            >
+              <div className='w-[100%] flex items-center justify-end gap-3 p-2 bg-white dark:bg-sky-900 rounded-md shadow-inner shadow-slate-900'>
+                <div className={`${device === 'mobile' ? '' : 'text-right'}`}>
+                  <p className='heading'>{degree.degree}</p>
+                  <p className='text-sm'>{degree.stream}</p>
+                </div>
+                <Image
+                  src={degree.image}
+                  width='80'
+                  height='80'
+                  alt={degree.degree}
+                />
+              </div>
+            </div>
+            <div
+              className={`
+            ${
+              device === 'mobile'
+                ? 'w-[100%] justify-center'
+                : 'w-[60%] z-40 ml-[-10%] pl-[15%] min-h-[200px] justify-center '
+            }
+            flex flex-col items-start gap-3 p-2 bg-blue-900/20 dark:bg-slate-700/30 rounded-md shadow-inner shadow-slate-900
+            [&_span]:text-black
+            [&_span]:dark:text-white`}
+            >
+              <p className='mt-[10px]'>
+                <span>{degree.start}</span>
+                <span>-</span>
+                <span>{degree.end}</span>
+              </p>
+              <p className='text-md text-black dark:text-gray-300'>
+                {degree.college}
+              </p>
+              <p className='text-sm text-black dark:text-gray-300'>
+                {degree.place}
+              </p>
+              <ul className='flex flex-wrap items-start justify-start gap-2 mb-[10px]'>
+                {degree.courses.map((course, key) => (
+                  <li
+                    key={key}
+                    className='text-sm bg-blue-300 text-black dark:bg-cyan-400/30 dark:text-gray-200 rounded-full px-4 py-1'
+                  >
+                    {course}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>

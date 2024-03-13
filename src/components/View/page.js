@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import Bio from '../Bio/page'; // Importing Bio component
 import Education from '../Education/page';
 import Experience from '../Experience/page'; // Importing Experience component
-import Skills from '../Skills/page'; // Importing Skills component
+import Skills from '../Skills/page';
+import Footer from '../Footer/page';
 
 // Definition of View component
 const View = () => {
@@ -86,7 +87,7 @@ const View = () => {
       {/* Main content area */}
       <div
         className={`
-          p-3 max-w-4xl h-full flex items-start justify-start rounded-[36px] transition-all duration-700 group`}
+          p-3 max-w-4xl h-full flex flex-col items-start justify-start rounded-[36px] transition-all duration-700 group`}
       >
         {/* Rendering different sections based on device size */}
         <div
@@ -115,6 +116,9 @@ const View = () => {
           {/* Education section */}
           <div id='education' className='w-[100%]'>
             <Education />
+          </div>
+          <div className='w-[100%]'>
+            <Footer />
           </div>
         </div>
       </div>
