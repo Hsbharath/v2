@@ -5,25 +5,62 @@
         "company": "The Tranzonic Companies",
         "place": "Cleveland, OH",
         "designation": "Web Developer",
-        "description": "",
-        "skills": []
+        "description": "Developed, tested, deployed and maintained the diverse array of projects. Worked with product manager and sales team and built websites as per the team requirements. ",
+        "skills": [
+            "Angular",
+            "AngularJS",
+            "React",
+            "Javascript",
+            "Typescript",
+            "MSSQL",
+            "MongoDB",
+            "HTML",
+            "CSS",
+            "Bootstrap",
+            "Tailwind",
+            "Bulma",
+            "NgRx",
+            "Redux",
+            "Azure",
+            "Docker",
+            "Git",
+            "Bitbucket",
+            "Jest",
+            "Jasmine",
+            "PowerBi",
+            "SharePoint"
+        ]
     },
     {
-        "start": 2014,
-        "end": 2013,
+        "start": 2013,
+        "end": 2014,
         "company": "Dell International Services",
         "place": "Bengaluru, KA",
-        "designation": "",
-        "description": "",
-        "skills": []
+        "designation": "Svc IT Dev Program Sr Assoc II",
+        "description": "Worked with the team to enigneer web application.",
+        "skills": [
+            "HTML",
+            "CSS, SASS, LESS",
+            "Javascript",
+            "JQuery",
+            "WordPress",
+            "Nginx"
+        ]
     },
     {
         "start": 2011,
         "end": 2013,
         "company": "EasyMate Technologies",
         "place": "Bengaluru, KA",
-        "designation": "",
-        "description": "",
-        "skills": []
+        "designation": "Network Support Analyst",
+        "description": "Worked with the team to enigneer web application.",
+        "skills": [
+            "HTML",
+            "CSS, SASS, LESS",
+            "Javascript",
+            "JQuery",
+            "WordPress",
+            "Nginx"
+        ]
     }
 ]
