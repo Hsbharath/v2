@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'; // Importing React library a
 import { useSelector } from 'react-redux';
 
 import PageTitle from '../PageTitle/page'; // Importing PageTitle component
+import Company from '../Company/page'; // Importing Company component
 
 // Definition of Experience component, responsible for displaying experience information
 const Experience = () => {
@@ -13,7 +14,6 @@ const Experience = () => {
     const fetchExperience = async () => {
       try {
         const data = await fetch('/experience.json'); // Fetching experience data from JSON file
-        console.log(data);
         const res = await data.json(); // Parsing JSON response
         setExperiences(res); // Updating state with fetched experiences data
       } catch (error) {
@@ -31,13 +31,44 @@ const Experience = () => {
     >
       {/* Displaying the title using PageTitle component */}
       <PageTitle title={'Experience'} /> {/* Displaying Experience List */}
-      <div className='w-[100%]'>
+      <div className='w-full'>
         {experiences.map((experience, index) => (
-          <div key={index}>
-            <span>{experience.start}</span>
-            <span>{experience.end}</span>
-            <span>{experience.company}</span>
-          </div>
+          <>
+            {device === 'mobile' && (
+              <div
+                key={index}
+                className='w-full flex flex-col items-start justify-between  gap-4 mb-12'
+              >
+                <div className='w-full flex flex-row items-center justify-between'>
+                  <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
+                    {experience.end}
+                  </span>
+                  <span className='w-full h-1 border-b-2 border-blue-400'></span>
+                  <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
+                    {experience.start}
+                  </span>
+                </div>
+                <Company skills={experience} />
+              </div>
+            )}
+            {device !== 'mobile' && (
+              <div
+                key={index}
+                className='w-full flex flex-row items-start justify-between  gap-4 mb-12'
+              >
+                <div className='w-[100px] min-h-[100px] flex flex-col items-center justify-between'>
+                  <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
+                    {experience.end}
+                  </span>
+                  <span className='w-1 h-[50px] border-r-2 border-blue-400'></span>
+                  <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
+                    {experience.start}
+                  </span>
+                </div>
+                <Company skills={experience} />
+              </div>
+            )}
+          </>
         ))}
       </div>
     </div>
@@ -45,3 +76,35 @@ const Experience = () => {
 };
 
 export default Experience; // Exporting Experience component as default
+
+{
+  /* <div
+  key={index}
+  className={`w-full flex items-start justify-between  gap-4 mb-12
+              ${device === 'mobile' ? 'flex-col' : 'flex-row'}
+            `}
+>
+  {device === 'mobile' && (
+    <div className='w-full flex flex-row items-center justify-between'>
+      <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
+        {experience.end}
+      </span>
+      <span className='w-full h-1 border-b-2 border-blue-400'></span>
+      <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
+        {experience.start}
+      </span>
+    </div>
+  )}
+  {device !== 'mobile' && (
+    <div className='w-[100px] flex flex-col items-center justify-between'>
+      <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
+        {experience.end}
+      </span>
+      <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
+        {experience.start}
+      </span>
+    </div>
+  )}
+  <Company skills={experience} />
+</div>; */
+}
