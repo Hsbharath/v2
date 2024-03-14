@@ -33,12 +33,9 @@ const Experience = () => {
       <PageTitle title={'Experience'} /> {/* Displaying Experience List */}
       <div className='w-full'>
         {experiences.map((experience, index) => (
-          <>
+          <div key={index}>
             {device === 'mobile' && (
-              <div
-                key={index}
-                className='w-full flex flex-col items-start justify-between  gap-4 mb-12'
-              >
+              <div className='w-full flex flex-col items-start justify-between  gap-4 mb-12'>
                 <div className='w-full flex flex-row items-center justify-between'>
                   <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
                     {experience.end}
@@ -52,10 +49,7 @@ const Experience = () => {
               </div>
             )}
             {device !== 'mobile' && (
-              <div
-                key={index}
-                className='w-full flex flex-row items-start justify-between  gap-4 mb-12'
-              >
+              <div className='w-full flex flex-row items-start justify-between  gap-4 mb-12'>
                 <div className='w-[100px] min-h-[100px] flex flex-col items-center justify-between'>
                   <span className='bg-blue-300 text-black dark:bg-sky-900 dark:text-gray-200 px-4 py-1 rounded-full border-2 border-blue-400'>
                     {experience.end}
@@ -68,7 +62,7 @@ const Experience = () => {
                 <Company skills={experience} />
               </div>
             )}
-          </>
+          </div>
         ))}
       </div>
     </div>

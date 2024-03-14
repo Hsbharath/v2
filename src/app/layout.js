@@ -1,4 +1,5 @@
 import { StoreProvider } from '@/store/StoreProvider';
+import GoogleAnalytics from '@/components/Analytics/page';
 
 import React from 'react';
 
@@ -30,19 +31,9 @@ export default function RootLayout({ children }) {
     <StoreProvider>
       <html lang='en' suppressHydrationWarning>
         <head>
-          <Script
-            async
-            src='https://www.googletagmanager.com/gtag/js?id=G-23J51D86PP'
-          ></Script>
-          <Script>
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', ${'${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}'});
-            `}
-          </Script>
+          {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
+            <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+          ) : null}
         </head>
         <body className={`${inter.variable} ${merri.variable} font-In`}>
           <Providers>{children}</Providers>
