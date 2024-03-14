@@ -3,6 +3,7 @@ import { StoreProvider } from '@/store/StoreProvider';
 import React from 'react';
 
 import { Inter, Merriweather } from 'next/font/google';
+import Script from 'next/script';
 
 import './globalicon.css';
 import './globals.css';
@@ -28,6 +29,21 @@ export default function RootLayout({ children }) {
   return (
     <StoreProvider>
       <html lang='en' suppressHydrationWarning>
+        <head>
+          <Script
+            async
+            src='https://www.googletagmanager.com/gtag/js?id=G-23J51D86PP'
+          ></Script>
+          <Script>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', ${'${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}'});
+            `}
+          </Script>
+        </head>
         <body className={`${inter.variable} ${merri.variable} font-In`}>
           <Providers>{children}</Providers>
         </body>
