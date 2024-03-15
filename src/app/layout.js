@@ -1,6 +1,8 @@
 import { StoreProvider } from '@/store/StoreProvider';
 import GoogleAnalytics from '@/components/Analytics/page';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import React from 'react';
 
 import { Inter, Merriweather } from 'next/font/google';
@@ -36,7 +38,10 @@ export default function RootLayout({ children }) {
           ) : null}
         </head>
         <body className={`${inter.variable} ${merri.variable} font-In`}>
-          <Providers>{children}</Providers>
+          <Providers>
+            {children}
+            <SpeedInsights />
+          </Providers>
         </body>
       </html>
     </StoreProvider>
