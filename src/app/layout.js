@@ -29,7 +29,6 @@ export const metadata = {
 
 // Layout component
 export default function RootLayout({ children }) {
-  
   return (
     <StoreProvider>
       <html lang='en' suppressHydrationWarning>
@@ -42,7 +41,11 @@ export default function RootLayout({ children }) {
           <Providers>
             {children}
             <SpeedInsights />
-            <Script id="clarity-script" strategy="afterInteractive" type="text/javascript">
+            <Script
+              id='clarity-script'
+              strategy='afterInteractive'
+              type='text/javascript'
+            >
               {`
                 (function(c,l,a,r,i,t,y){
                   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
