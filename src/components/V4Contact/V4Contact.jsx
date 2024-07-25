@@ -1,9 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const V4Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+
+  const [formErrors, setFormErrors] = useState({});
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    setFormErrors({
+      ...formErrors,
+      [name]: '',
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Validate form
+    let errors = {};
+    if (!formData.firstName.trim()) {
+      errors.firstName = 'First Name is required';
+    }
+    if (!formData.lastName.trim()) {
+      errors.lastName = 'Last Name is required';
+    }
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = 'Email is invalid';
+    }
+    if (!formData.message.trim()) {
+      errors.message = 'Message is required';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+    } else {
+      // Simulate sending data (replace with actual API call if needed)
+      setTimeout(() => {
+        setSubmitMessage('Message sent successfully!');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          message: '',
+        });
+      }, 1000);
+    }
+  };
+
   return (
-    <div className='relative w-full min-h-[400px] bg-gray-100 flex flex-col xl:flex-row justify-start content-center p-12 mt-12'>
-      <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-col xl:flex-row justify-start content-center gap-4 mx-auto py-16'>
+    <div className='relative w-full min-h-[400px] bg-gray-100 flex flex-col xl:flex-row justify-start content-center gap-12 p-12 mt-12'>
+      <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-col xl:flex-row justify-start content-center gap-12 mx-auto py-16'>
         <div
           className='w-full xl:w-[20%] flex flex-col justify-start items-start'
           data-aos='fade-up'
@@ -25,11 +84,118 @@ const V4Contact = () => {
               />
             </svg>
           </div>
+          <h1 className='text-xl text-black font-light'>
+            Write your{' '}
+            <span className='text-[#f3bb44] font-bold'>message!</span>. if you
+            have any attachements to share please send it to{' '}
+            <a href='mailto:bharathh.868@gmail.com'>
+              <span className='text-[#f3bb44] font-bold'>
+                bharathh.868@gmail.com
+              </span>
+            </a>
+          </h1>
         </div>
         <div
           className='w-full xl:w-[80%] flex flex-col justify-start items-start gap-12'
           data-aos='fade-left'
-        ></div>
+        >
+          <h1 className='text-2xl xl:text-4xl text-black font-medium'>
+            Need someone{' '}
+            <span className='text-[#f3bb44]'> project assistance? </span>Or{' '}
+            <span className='text-[#f3bb44]'>
+              Want to hire a for freelance work?{' '}
+            </span>
+            please leave a message i will get back ASAP.
+          </h1>
+          <form
+            onSubmit={handleSubmit}
+            className='w-full flex flex-col justify-start items-start gap-6'
+          >
+            <div className='w-full flex justify-start items-start gap-6'>
+              <div className='w-full md:w-1/2 flex flex-col justify-start items-start gap-2'>
+                <label>First Name *</label>
+                <input
+                  className='w-full h-[50px] bg-white border-2 px-2'
+                  type='text'
+                  name='firstName'
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                />
+                {formErrors.firstName && (
+                  <span className='w-full error bg-red-600 text-white p-2'>
+                    {formErrors.firstName}
+                  </span>
+                )}
+              </div>
+              <div className='w-full md:w-1/2 flex flex-col justify-start items-start gap-2'>
+                <label>Last Name *</label>
+                <input
+                  className='w-full h-[50px] bg-white border-2 px-2'
+                  type='text'
+                  name='lastName'
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                />
+                {formErrors.lastName && (
+                  <span className='w-full error bg-red-600 text-white p-2'>
+                    {formErrors.lastName}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className='w-full flex justify-start items-start gap-6'>
+              <div className='w-full md:w-1/2 flex flex-col justify-start items-start gap-2'>
+                <label>Email *</label>
+                <input
+                  className='w-full h-[50px] bg-white border-2 px-2'
+                  type='email'
+                  name='email'
+                  value={formData.email}
+                  onChange={handleInputChange}
+                />
+                {formErrors.email && (
+                  <span className='w-full error bg-red-600 text-white p-2'>
+                    {formErrors.email}
+                  </span>
+                )}
+              </div>
+              <div className='w-full md:w-1/2 flex flex-col justify-start items-start gap-2'>
+                <label>Phone</label>
+                <input
+                  className='w-full h-[50px] bg-white border-2 px-2'
+                  type='tel'
+                  name='phone'
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                />
+              </div>
+            </div>
+            <div className='w-full flex justify-start items-start gap-6'>
+              <div className='w-full flex flex-col justify-start items-start'>
+                <label>Message *</label>
+                <textarea
+                  className='w-full min-h-[100px] bg-white border-2 px-2'
+                  name='message'
+                  value={formData.message}
+                  onChange={handleInputChange}
+                ></textarea>
+                {formErrors.message && (
+                  <span className='w-full error bg-red-600 text-white p-2'>
+                    {formErrors.message}
+                  </span>
+                )}
+              </div>
+            </div>
+            <button type='submit' className='w-[100px] h-[50px] bg-[#f3bb44]'>
+              <a>Submit</a>
+            </button>
+            {submitMessage && (
+              <p className='success bg-green-600 text-white p-2 w-full '>
+                {submitMessage}
+              </p>
+            )}
+          </form>
+        </div>
       </div>
     </div>
   );
