@@ -49,7 +49,10 @@ const V4Education = () => {
               alt='Kent State University Image'
             />
           </div>
-          <div className='w-[45%] h-[400px] absolute top-0 right-0 bg-[#f3bb44] flex flex-col justify-start items-end text-right p-6'>
+          <div
+            className='w-[45%] h-[400px] absolute top-0 right-0 bg-[#f3bb44] flex flex-col justify-start items-end text-right p-6'
+            data-aos='fade-left'
+          >
             <h1 className='text-2xl xl:text-3xl font-medium mb-6'>
               Master of Science
             </h1>
@@ -86,7 +89,10 @@ const V4Education = () => {
               alt='Golden Valley Institute Of Technolgy Image'
             />
           </div>
-          <div className='w-[45%] h-[400px] absolute top-0 right-0 bg-[#f3bb44] flex flex-col justify-start items-end text-right p-6'>
+          <div
+            className='w-[45%] h-[400px] absolute top-0 right-0 bg-[#f3bb44] flex flex-col justify-start items-end text-right p-6'
+            data-aos='fade-left'
+          >
             <h1 className='text-2xl xl:text-3xl font-medium mb-6'>
               Bachelor of Engineering
             </h1>
