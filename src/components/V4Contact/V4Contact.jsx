@@ -61,7 +61,7 @@ const V4Contact = () => {
   };
 
   return (
-    <div className='relative w-full min-h-[400px] bg-gray-100 flex flex-col xl:flex-row justify-start content-center gap-12 p-12 mt-12'>
+    <div className='relative w-full min-h-[400px] bg-gray-100 flex flex-col xl:flex-row justify-start content-center gap-12 p-6 xl:p-12 mt-12'>
       <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-col xl:flex-row justify-start content-center gap-12 mx-auto py-16'>
         <div
           className='w-full xl:w-[20%] flex flex-col justify-start items-start'
@@ -111,8 +111,8 @@ const V4Contact = () => {
             onSubmit={handleSubmit}
             className='w-full flex flex-col justify-start items-start gap-6'
           >
-            <div className='w-full flex justify-start items-start gap-6'>
-              <div className='w-full md:w-1/2 flex flex-col justify-start items-start gap-2'>
+            <div className='w-full flex flex-col xl:flex-row justify-start items-start gap-6'>
+              <div className='w-full xl:w-1/2 flex flex-col justify-start items-start gap-2'>
                 <label>First Name *</label>
                 <input
                   className='w-full h-[50px] bg-white border-2 px-2'
@@ -127,7 +127,7 @@ const V4Contact = () => {
                   </span>
                 )}
               </div>
-              <div className='w-full md:w-1/2 flex flex-col justify-start items-start gap-2'>
+              <div className='w-full xl:w-1/2 flex flex-col justify-start items-start gap-2'>
                 <label>Last Name *</label>
                 <input
                   className='w-full h-[50px] bg-white border-2 px-2'
@@ -143,8 +143,8 @@ const V4Contact = () => {
                 )}
               </div>
             </div>
-            <div className='w-full flex justify-start items-start gap-6'>
-              <div className='w-full md:w-1/2 flex flex-col justify-start items-start gap-2'>
+            <div className='w-full flex flex-col xl:flex-row justify-start items-start gap-6'>
+              <div className='w-full xl:w-1/2 flex flex-col justify-start items-start gap-2'>
                 <label>Email *</label>
                 <input
                   className='w-full h-[50px] bg-white border-2 px-2'
@@ -159,7 +159,7 @@ const V4Contact = () => {
                   </span>
                 )}
               </div>
-              <div className='w-full md:w-1/2 flex flex-col justify-start items-start gap-2'>
+              <div className='w-full xl:w-1/2 flex flex-col justify-start items-start gap-2'>
                 <label>Phone</label>
                 <input
                   className='w-full h-[50px] bg-white border-2 px-2'
@@ -170,7 +170,7 @@ const V4Contact = () => {
                 />
               </div>
             </div>
-            <div className='w-full flex justify-start items-start gap-6'>
+            <div className='w-full flex flex-col xl:flex-row justify-start items-start gap-6'>
               <div className='w-full flex flex-col justify-start items-start'>
                 <label>Message *</label>
                 <textarea

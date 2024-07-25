@@ -3,7 +3,7 @@ import React from 'react';
 
 const V4Education = () => {
   return (
-    <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto min-h-[400px] flex flex-col xl:flex-row justify-start content-center p-6 my-12'>
+    <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto flex flex-col xl:flex-row justify-start content-center p-6 my-12'>
       <div
         className='w-full xl:w-[33%] flex flex-col justify-start items-start'
         data-aos='fade-right'
@@ -38,7 +38,7 @@ const V4Education = () => {
       >
         <div className='relative w-full min-h-[500px]'>
           <div
-            className='w-[65%] h-[250px] absolute bottom-0 left-0 z-20 mt-[-100px]'
+            className='w-full xl:w-[65%] h-auto absolute bottom-0 left-0 z-20 xl:mt-[-100px]'
             data-aos='fade-up'
           >
             <Image
@@ -50,7 +50,7 @@ const V4Education = () => {
             />
           </div>
           <div
-            className='w-[45%] h-[400px] absolute top-0 right-0 bg-[#f3bb44] flex flex-col justify-start items-end text-right p-6'
+            className='w-full xl:w-[45%] min-h-[350px] xl:h-[400px] absolute top-0 right-0 bg-[#f3bb44] flex flex-col justify-start items-end text-right p-6'
             data-aos='fade-left'
           >
             <h1 className='text-2xl xl:text-3xl font-medium mb-6'>
@@ -78,7 +78,7 @@ const V4Education = () => {
         </div>
         <div className='relative w-full min-h-[500px]'>
           <div
-            className='w-[65%] h-[250px] absolute bottom-0 left-0 z-20 mt-[-100px]'
+            className='w-full xl:w-[65%] h-auto xl:h-[250px] absolute bottom-0 left-0 z-20 xl:mt-[-100px]'
             data-aos='fade-up'
           >
             <Image
@@ -90,7 +90,7 @@ const V4Education = () => {
             />
           </div>
           <div
-            className='w-[45%] h-[400px] absolute top-0 right-0 bg-[#f3bb44] flex flex-col justify-start items-end text-right p-6'
+            className='w-full xl:w-[45%] min-h-[400px] xl:h-[400px] absolute top-0 right-0 bg-[#f3bb44] flex flex-col justify-start items-end text-right p-6'
             data-aos='fade-left'
           >
             <h1 className='text-2xl xl:text-3xl font-medium mb-6'>

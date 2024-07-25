@@ -101,23 +101,25 @@ const V4Experience = () => {
               </div>
             </div>
           </div>
-          <div className='w-full flex justify-between items-center py-12'>
-            <a
-              href='/'
-              className='w-[80px] h-[80px] flex justify-center items-center z-50'
-            >
-              <span className='material-symbols-outlined text-white border-[#f3bb44] border-2 p-4 rounded-full'>
-                west
-              </span>
-            </a>
-            <a
-              href='/'
-              className='w-[80px] h-[80px] flex justify-center items-center z-50'
-            >
-              <span className='material-symbols-outlined text-white border-[#f3bb44] border-2 p-4 rounded-full'>
-                east
-              </span>
-            </a>
+          <div className='w-full hidden xl:block'>
+            <div className='w-full flex justify-between items-center py-12'>
+              <a
+                href='/'
+                className='w-[80px] h-[80px] flex justify-center items-center z-50'
+              >
+                <span className='material-symbols-outlined text-white border-[#f3bb44] border-2 p-4 rounded-full'>
+                  west
+                </span>
+              </a>
+              <a
+                href='/'
+                className='w-[80px] h-[80px] flex justify-center items-center z-50'
+              >
+                <span className='material-symbols-outlined text-white border-[#f3bb44] border-2 p-4 rounded-full'>
+                  east
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
