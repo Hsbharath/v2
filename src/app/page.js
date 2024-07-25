@@ -1,11 +1,12 @@
-import Main from '../components/Main/page'; // Importing the Main component
+//import Main from '../components/Main/page'; // Importing the Main component
+import V4Main from '@/components/V4Main/V4Main';
 
 // Default export of the Home component, responsible for rendering the main content of the home page
 export default function Home() {
   return (
     <main className='main relative w-screen min-h-[100vh]'>
       {/* Background elements for visual effect */}
-      <div
+      {/* <div
         className='fixed top-0 left-0 w-screen h-[100vh] flex items-center justify-center overflow-hidden
         before:absolute
         before:top-1/2
@@ -32,9 +33,10 @@ export default function Home() {
         after:-skew-x-12
         after:border-2
         after:dark:bg-blue-600/20'
-      ></div>
+      ></div> */}
       {/* Rendering the Main component */}
-      <Main />
+      {/* <Main /> */}
+      <V4Main />
     </main>
   );
 }

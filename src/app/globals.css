@@ -18,12 +18,14 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background: #ffffff;
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+  //cursor: none;
 }
 
 @layer utilities {
@@ -32,11 +34,11 @@ body {
   }
 }
 
-@layer base {
+/* @layer base {
   .main {
     @apply dark:bg-slate-800;
   }
-}
+} */
 
 .stroke-letters {
   -webkit-text-stroke-width: 2px;
@@ -103,3 +105,72 @@ html {
 .laptop .paragraph {
   font-size: 19px;
 }
+
+.custom-cursor {
+  position: fixed;
+  top: -12px;
+  left: -12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.cursor-text {
+  font-size: 5px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  display: none;
+}
+
+.gradient-black {
+  z-index: 5;
+  background-image: linear-gradient(#0000, #000);
+  height: 80%;
+  position: absolute;
+  inset: auto 0% 0%;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* .cursor-wrapper {
+  z-index: 9999;
+  mix-blend-mode: difference;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+}
+
+.cursor {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transform: scale(1);
+} */
