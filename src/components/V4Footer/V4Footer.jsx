@@ -3,7 +3,7 @@ import React from 'react';
 
 const V4Footer = () => {
   return (
-    <div className='relative w-full min-h-[400px] bg-black flex flex-col xl:flex-row justify-start items-start p-12'>
+    <div className='relative w-full min-h-[400px] bg-black flex flex-col xl:flex-row justify-start items-start p-6 xl:p-12'>
       <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-col xl:flex-row justify-start items-start gap-12 mx-auto py-16'>
         <div className='relative w-full xl:w-[20%] flex flex-col justify-start items-start'>
           <Image
@@ -13,7 +13,7 @@ const V4Footer = () => {
             width={300}
             height={300}
           />
-          <div className='absolute bottom-[80px] right-[-80px] -skew-y-12'>
+          <div className='absolute bottom-[80px] xl:right-[-80px] -skew-y-12'>
             <Image
               className='w-full xl:mx-auto'
               src={'/Icons/bharath-yellow.svg'}
@@ -25,11 +25,11 @@ const V4Footer = () => {
           </div>
         </div>
         <div
-          className='w-full xl:w-[80%] flex flex-col justify-start items-start ml-[50px]'
+          className='w-full xl:w-[80%] flex flex-col justify-start items-start xl:ml-[50px]'
           data-aos='fade-up'
         >
           <div className='w-full flex flex-col xl:flex-row justify-start items-start gap-4'>
-            <div className='w-[60%]'>
+            <div className='w-full xl:w-[60%]'>
               <h1 className='text-xl text-[#9ca3af] font-medium mt-6'>
                 About Website Design:
               </h1>
@@ -60,7 +60,7 @@ const V4Footer = () => {
                 from Google.
               </p>
             </div>
-            <div className='w-[40%]'>
+            <div className='w-full xl:w-[40%]'>
               <h1 className='text-xl text-[#9ca3af] font-medium capitalize'>
                 call / text on
               </h1>
