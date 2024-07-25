@@ -4,7 +4,7 @@ import React from 'react';
 const V4Bio = () => {
   return (
     <div
-      className='w-full lg:max-w-screen-2xl md:max-w-screen-xl min-h-[800px] mx-auto px-6 py-12 flex justify-center items-center'
+      className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl min-h-[800px] mx-auto px-6 py-12 flex justify-center items-center'
       data-aos='fade-up'
     >
       <div className='relative w-full h-full flex flex-col justify-start content-center gap-12'>
@@ -49,7 +49,7 @@ const V4Bio = () => {
             height={300}
           />
         </div>
-        <div className='w-full mt-[-200px] xl:w-[95%] min-h-[400px] xl:mt-[35px] flex flex-col md:flex-row justify-start content-center gap-8 bg-black z-50'>
+        <div className='w-full mt-[-200px] xl:w-[90%] min-h-[400px] xl:mt-[35px] flex flex-col md:flex-row justify-start content-center gap-8 bg-black z-50'>
           <div className='w-full lg:w-[25%] flex justify-center items-center'>
             <svg
               width='180'
