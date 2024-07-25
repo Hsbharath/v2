@@ -17,10 +17,10 @@ const V4Cursor = () => {
     const onMouseEnterLink = (event) => {
       const link = event.target;
       if (link.classList.contains('view')) {
-        gsap.to(cursor, { scale: 4 });
+        gsap.to(cursor, { scale: 6 });
         cursorText.style.display = 'block';
       } else {
-        gsap.to(cursor, { scale: 4 });
+        gsap.to(cursor, { scale: 6 });
       }
     };
 
