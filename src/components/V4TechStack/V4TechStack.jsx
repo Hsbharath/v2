@@ -26,7 +26,7 @@ const V4TechStack = () => {
         {skillsData.map((skill, index) => (
           <div
             key={index}
-            className='w-full text-center p-6 shadow-[0_30px_130px_-65px_rgba(0,0,0,0.73)]'
+            className='w-full max-w-[225px] mx-auto text-center p-6 shadow-[0_30px_130px_-65px_rgba(0,0,0,0.73)]'
             data-aos='flip-up'
           >
             <div>
@@ -38,7 +38,7 @@ const V4TechStack = () => {
                 className='mx-auto'
               />
             </div>
-            <p className='py-6'>{skill.name}</p>
+            <p className='py-6 text-xl font-medium'>{skill.name}</p>
           </div>
         ))}
       </div>

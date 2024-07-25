@@ -129,6 +129,14 @@ html {
   display: none;
 }
 
+.gradient-black {
+  z-index: 5;
+  background-image: linear-gradient(#0000, #000);
+  height: 80%;
+  position: absolute;
+  inset: auto 0% 0%;
+}
+
 .bounce {
   animation: bounce 2s infinite;
 }
