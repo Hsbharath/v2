@@ -194,7 +194,7 @@ const V4Bio = () => {
           </div>
           <div className='w-full lg:w-[75%] flex justify-center items-center lg:pr-[150px] p-4'>
             <p className='text-white text-2xl font-medium'>
-              Working has a web developer for over 7 years. I have gained skills
+              Working as a web developer for over 7 years. I have gained skills
               in building responsive websites and web applications, with a focus
               on usability. Strong problem-solving abilities and commitment to
               staying updated with industry trends. Passionate about creating
