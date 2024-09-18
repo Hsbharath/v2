@@ -100,10 +100,10 @@ const V4Contact = () => {
           data-aos='fade-left'
         >
           <h1 className='text-2xl xl:text-4xl text-black font-medium'>
-            Need someone{' '}
+            Need someone for{' '}
             <span className='text-[#f3bb44]'> project assistance? </span>Or{' '}
             <span className='text-[#f3bb44]'>
-              Want to hire a for freelance work?{' '}
+              Want to hire for freelance work?{' '}
             </span>
             please leave a message i will get back ASAP.
           </h1>
