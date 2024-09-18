@@ -43,7 +43,7 @@ const V4Bio = () => {
         >
           <Image
             className='w-full xl:mx-auto'
-            src={'/Icons/bharath.jpeg'}
+            src={'/Icons/Bharath New.jpg'}
             alt='Bharath Image'
             width={300}
             height={300}
