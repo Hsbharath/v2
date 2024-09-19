@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import V4Header from '../V4Header/V4Header';
 import V4Bio from '../V4Bio/V4Bio';
 import V4Cursor from '../V4Cursor/V4Cursor';
@@ -17,16 +17,30 @@ const V4Main = () => {
     AOS.init();
   }, []);
 
+  const skillsRef = useRef(null);
+  const experienceRef = useRef(null);
+  const educationRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
       <V4Cursor />
       <div className='w-full min-h-screen mx-auto'>
-        <V4Header />
+        <V4Header
+          scrollToSkills={() => scrollToSection(skillsRef)}
+          scrollToExperience={() => scrollToSection(experienceRef)}
+          scrollToEducation={() => scrollToSection(educationRef)}
+          scrollToContact={() => scrollToSection(contactRef)}
+        />
         <V4Bio />
-        <V4Skills />
-        <V4Experience />
-        <V4Education />
-        <V4Contact />
+        <V4Skills ref={skillsRef} />
+        <V4Experience ref={experienceRef} />
+        <V4Education ref={educationRef} />
+        <V4Contact ref={contactRef} />
         <V4Footer />
       </div>
     </>

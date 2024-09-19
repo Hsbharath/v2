@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-const V4Education = () => {
+const V4Education = forwardRef((props, ref) => {
   return (
-    <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto flex flex-col xl:flex-row justify-start content-center p-6 my-12'>
+    <div ref={ref} className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto flex flex-col xl:flex-row justify-start content-center p-6 my-12'>
       <div
         className='w-full xl:w-[33%] flex flex-col justify-start items-start'
         data-aos='fade-right'
@@ -119,6 +119,6 @@ const V4Education = () => {
       </div>
     </div>
   );
-};
+});
 
 export default V4Education;

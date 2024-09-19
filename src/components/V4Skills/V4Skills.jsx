@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import V4TechStack from '../V4TechStack/V4TechStack';
 
-const V4Skills = () => {
+const V4Skills = forwardRef((props, ref) => {
   return (
-    <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto min-h-[400px] flex flex-col xl:flex-row justify-start content-center p-6 my-12'>
+    <div
+      ref={ref}
+      className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto min-h-[400px] flex flex-col xl:flex-row justify-start content-center p-6 my-12'
+    >
       <div
         className='w-full xl:w-[33%] flex flex-col justify-start items-start'
         data-aos='fade-right'
@@ -38,6 +41,6 @@ const V4Skills = () => {
       </div>
     </div>
   );
-};
+});
 
 export default V4Skills;
