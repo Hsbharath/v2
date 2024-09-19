@@ -103,8 +103,8 @@ const V4Contact = forwardRef((props, ref) => {
           data-aos='fade-left'
         >
           <h1 className='text-2xl xl:text-4xl text-black font-medium'>
-            Need someone for{' '}
-            <span className='text-[#f3bb44]'> project assistance? </span>Or{' '}
+            Looking for someone to{' '}
+            <span className='text-[#f3bb44]'> help with your project? </span>Or{' '}
             <span className='text-[#f3bb44]'>
               Want to hire for freelance work?{' '}
             </span>
