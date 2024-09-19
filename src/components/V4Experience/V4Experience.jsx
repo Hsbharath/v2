@@ -1,12 +1,9 @@
 import Image from 'next/image';
-import React, { forwardRef } from 'react';
+import React from 'react';
 
-const V4Experience = forwardRef((props, ref) => {
+const V4Experience = () => {
   return (
-    <div
-      ref={ref}
-      className='relative w-full min-h-[400px] bg-black flex flex-col xl:flex-row justify-start content-center p-12 my-12'
-    >
+    <div className='relative w-full min-h-[400px] bg-black flex flex-col xl:flex-row justify-start content-center p-12 my-12'>
       <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-col xl:flex-row justify-start content-center gap-4 mx-auto py-16'>
         <div
           className='w-full xl:w-[20%] flex flex-col justify-start items-start'
@@ -128,6 +125,6 @@ const V4Experience = forwardRef((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 export default V4Experience;

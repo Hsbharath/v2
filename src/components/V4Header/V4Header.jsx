@@ -4,12 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 
-const V4Header = ({
-  scrollToSkills,
-  scrollToExperience,
-  scrollToEducation,
-  scrollToContact,
-}) => {
+const V4Header = () => {
   return (
     <nav className='bg-white' data-aos='fade-down'>
       <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-6 py-12'>
@@ -49,7 +44,7 @@ const V4Header = ({
           <ul className='font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white'>
             <li>
               <a
-                href='/'
+                href='#'
                 className='block py-2 px-3 text-gray-900 rounded md:bg-transparent md:p-0'
                 aria-current='page'
               >
@@ -58,32 +53,32 @@ const V4Header = ({
             </li>
             <li>
               <a
-                onClick={scrollToSkills}
-                className='block cursor-pointer py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0'
+                href='#'
+                className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0'
               >
                 Skills
               </a>
             </li>
             <li>
               <a
-                onClick={scrollToExperience}
-                className='block cursor-pointer py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0'
+                href='#'
+                className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0'
               >
                 Experience
               </a>
             </li>
             <li>
               <a
-                onClick={scrollToEducation}
-                className='block cursor-pointer py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0'
+                href='#'
+                className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0'
               >
                 Education
               </a>
             </li>
             <li>
               <a
-                onClick={scrollToContact}
-                className='block cursor-pointer py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0'
+                href='#'
+                className='block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0'
               >
                 Contact
               </a>
