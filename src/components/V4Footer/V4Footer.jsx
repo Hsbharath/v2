@@ -83,7 +83,8 @@ const V4Footer = () => {
               <ul className='w-full my-4 flex justify-start items-center gap-4 mb-6'>
                 <li>
                   <a
-                    href='tel:+12342815147'
+                    href='https://www.linkedin.com/in/bharathhunkundasreenivasa'
+                    target='_blank'
                     className='text-lg text-[#f3bb44] flex justify-start items-center gap-6'
                   >
                     <Image
@@ -96,7 +97,8 @@ const V4Footer = () => {
                 </li>
                 <li>
                   <a
-                    href='tel:+12342815147'
+                    href='https://www.reddit.com/user/learning-goodlife/'
+                    target='_blank'
                     className='text-lg text-[#f3bb44] flex justify-start items-center gap-6'
                   >
                     <Image
