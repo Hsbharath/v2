@@ -71,7 +71,7 @@ const V4Education = forwardRef((props, ref) => {
             <p className='text-xl xl:text-xl text-black font-light'>Kent, OH</p>
             <p className='text-xl xl:text-xl text-black font-light'>USA</p>
             <a
-              href='https://kent.edu'
+              href='https://www.kent.edu/'
               target='_blank'
               className='absolute w-[50px] h-[50px] flex justify-center items-center bg-white rounded-full bottom-6 right-6'
             >
