@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-const V4Bio = () => {
+const V4Bio = ({ scrollAction }) => {
   return (
     <div
       className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl min-h-[800px] mx-auto px-6 py-12 flex justify-center items-center'
@@ -17,7 +17,10 @@ const V4Bio = () => {
           <div className='py-12 flex justify-start items-center'>
             <span className='material-symbols-outlined bounce'>south</span>
             <div className='flex flex-col justify-start items-center'>
-              <a href='' className='p-4 text-2xl font-medium mb-[-10px]'>
+              <a
+                onClick={scrollAction}
+                className='cursor-pointer p-4 text-2xl font-medium mb-[-10px]'
+              >
                 Get In Touch
               </a>
               <svg

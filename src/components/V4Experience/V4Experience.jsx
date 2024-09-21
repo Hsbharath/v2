@@ -104,7 +104,7 @@ const V4Experience = forwardRef((props, ref) => {
               </div>
             </div>
           </div>
-          <div className='w-full hidden xl:block'>
+          {/* <div className='w-full hidden xl:block'>
             <div className='w-full flex justify-between items-center py-12'>
               <a
                 href='/'
@@ -123,7 +123,7 @@ const V4Experience = forwardRef((props, ref) => {
                 </span>
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
