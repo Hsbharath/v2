@@ -30,7 +30,7 @@ const V4Skills = forwardRef((props, ref) => {
           </svg>
         </div>
         <h1 className='text-2xl xl:text-5xl font-medium'>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          I have experience working with technology stack that includes
         </h1>
       </div>
       <div

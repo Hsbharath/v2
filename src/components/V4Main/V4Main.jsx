@@ -36,7 +36,12 @@ const V4Main = () => {
           scrollToEducation={() => scrollToSection(educationRef)}
           scrollToContact={() => scrollToSection(contactRef)}
         />
-        <V4Bio />
+        <V4Bio
+          scrollAction={(e) => {
+            e.preventDefault();
+            scrollToSection(contactRef);
+          }}
+        />
         <V4Skills ref={skillsRef} />
         <V4Experience ref={experienceRef} />
         <V4Education ref={educationRef} />
