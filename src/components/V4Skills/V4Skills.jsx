@@ -6,7 +6,7 @@ const V4Skills = forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto min-h-[400px] flex flex-col xl:flex-row justify-start content-center p-6 my-12'
+      className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto min-h-[400px] flex flex-col xl:flex-row justify-start content-center p-6 my-12 gap-8'
     >
       <div
         className='w-full xl:w-[33%] flex flex-col justify-start items-start'
