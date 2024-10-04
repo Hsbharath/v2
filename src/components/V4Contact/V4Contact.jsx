@@ -63,7 +63,7 @@ const V4Contact = forwardRef((props, ref) => {
   return (
     <div
       ref={ref}
-      className='relative w-full min-h-[400px] bg-gray-100 flex flex-col xl:flex-row justify-start content-center gap-12 p-6 xl:p-12 mt-12'
+      className='relative w-full min-h-[400px] flex flex-col xl:flex-row justify-start content-center gap-12 p-6 xl:p-12 mt-12'
     >
       <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-col xl:flex-row justify-start content-center gap-12 mx-auto py-16'>
         <div

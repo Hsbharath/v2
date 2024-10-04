@@ -12,7 +12,7 @@ const V4Header = ({
 }) => {
   return (
     <nav className='bg-white' data-aos='fade-down'>
-      <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-6 py-12'>
+      <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto px-6 py-6'>
         <Link href='https://hsbharath.dev'>
           <Image
             src='/Icons/bharath.svg'
