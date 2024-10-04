@@ -29,7 +29,7 @@ const V4Main = () => {
   return (
     <>
       <V4Cursor />
-      <div className='w-full min-h-screen bg-[#f4f2ee] mx-auto'>
+      <div className='w-full min-h-screen mx-auto'>
         <V4Header
           scrollToSkills={() => scrollToSection(skillsRef)}
           scrollToExperience={() => scrollToSection(experienceRef)}

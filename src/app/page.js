@@ -4,7 +4,7 @@ import V4Main from '@/components/V4Main/V4Main';
 // Default export of the Home component, responsible for rendering the main content of the home page
 export default function Home() {
   return (
-    <main className='main relative w-screen min-h-[100vh]'>
+    <main className='main relative w-screen min-h-[100vh] bg-white'>
       {/* Background elements for visual effect */}
       {/* <div
         className='fixed top-0 left-0 w-screen h-[100vh] flex items-center justify-center overflow-hidden
