@@ -20,7 +20,7 @@ const rajdhani = Rajdhani({
 
 export const metadata = {
   title: 'Bharath Hunkunda Sreenivasa',
-  description: 'Robotics & Full Stack Developer — 7+ years experience.',
+  description: 'Full Stack Developer — 9+ years experience. Based in Seattle, WA. Available for freelance.',
 };
 
 export default function RootLayout({ children }) {
