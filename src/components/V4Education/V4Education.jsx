@@ -6,17 +6,23 @@ import { SectionHeader } from '../V4Skills/V4Skills';
 const degrees = [
   {
     degree: 'Master of Science',
+    field: 'Computer & Information Science',
     school: 'Kent State University',
-    dept: 'School of Digital Sciences — Computer & Information Science',
-    meta: '2015 SPRING BATCH // KENT, OH // USA',
+    dept: 'School of Digital Sciences',
+    meta: 'KENT, OH · USA',
+    batch: 'SPRING 2015',
     year: '2015',
+    color: 'var(--cyan)',
   },
   {
     degree: 'Bachelor of Engineering',
+    field: 'Information Science',
     school: 'Dr. T. Thimmaiah Institute of Technology',
     dept: 'Department of Information Science',
-    meta: '2007 – 2011 BATCH // KGF, KA // INDIA',
+    meta: 'KGF, KA · INDIA',
+    batch: '2007 – 2011',
     year: '2011',
+    color: 'var(--teal)',
   },
 ];
 
@@ -25,17 +31,18 @@ const V4Education = forwardRef((_props, ref) => {
 
   return (
     <section ref={ref} style={{
-      height: '100vh', display: 'flex', flexDirection: 'column',
-      justifyContent: 'center',
-      padding: '60px 3rem 2rem',
-      position: 'relative', overflow: 'hidden',
-    }}>
+      minHeight: '100%',
+      padding: '2rem 3rem 2rem',
+      position: 'relative',
+    }}
+    className='edu-section'
+    >
       <div style={{ position: 'absolute', bottom: '20%', left: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(0,229,255,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: '900px', width: '100%', position: 'relative', zIndex: 1 }}>
         <SectionHeader num='03 // EDUCATION' title='TRAINING DATA' />
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }} className='edu-grid'>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} className='edu-grid'>
           {degrees.map((d, i) => (
             <div
               key={i}
@@ -43,44 +50,88 @@ const V4Education = forwardRef((_props, ref) => {
               onMouseLeave={() => setHovered(null)}
               style={{
                 background: 'var(--surface)',
-                border: `1px solid ${hovered === i ? 'var(--cyan2)' : 'var(--border)'}`,
-                padding: '2rem',
-                clipPath: 'polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px))',
+                border: `1px solid ${hovered === i ? d.color : 'var(--border)'}`,
+                padding: '0',
+                clipPath: 'polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px))',
                 position: 'relative',
-                transition: 'all 0.2s',
-                boxShadow: hovered === i ? '0 0 30px rgba(0,229,255,0.08)' : 'none',
+                transition: 'all 0.25s',
+                boxShadow: hovered === i ? `0 0 30px ${d.color}15` : 'none',
+                overflow: 'hidden',
               }}
             >
-              {/* Corner decorations */}
-              <div style={{ position: 'absolute', top: '1rem', left: '1rem', width: '18px', height: '18px', borderTop: '1px solid var(--cyan)', borderLeft: '1px solid var(--cyan)', opacity: 0.4 }} />
-              <div style={{ position: 'absolute', bottom: '1rem', right: '1rem', width: '18px', height: '18px', borderBottom: '1px solid var(--cyan)', borderRight: '1px solid var(--cyan)', opacity: 0.4 }} />
-
-              {/* Year badge */}
+              {/* Year banner across the top — prominent */}
               <div style={{
-                position: 'absolute', top: '1.2rem', right: '1.5rem',
-                fontFamily: "'Orbitron', monospace", fontSize: '2.5rem',
-                fontWeight: 900, color: 'rgba(0,229,255,0.07)', lineHeight: 1,
-                userSelect: 'none',
-              }}>{d.year}</div>
+                background: `linear-gradient(90deg, ${d.color}22, transparent)`,
+                borderBottom: `1px solid ${d.color}30`,
+                padding: '0.6rem 1.5rem',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              }}>
+                <span style={{
+                  fontFamily: "'Orbitron', monospace", fontSize: '1.6rem', fontWeight: 900,
+                  color: d.color, letterSpacing: '2px', lineHeight: 1,
+                  textShadow: `0 0 20px ${d.color}60`,
+                }}>{d.year}</span>
+                <span style={{
+                  fontFamily: "'Share Tech Mono', monospace", fontSize: '0.62rem',
+                  color: d.color, letterSpacing: '2px', opacity: 0.8,
+                }}>{d.batch}</span>
+              </div>
 
-              <div style={{ fontFamily: "'Orbitron', monospace", fontSize: '0.85rem', fontWeight: 700, color: 'var(--cyan)', marginBottom: '0.6rem', letterSpacing: '1px' }}>
-                {d.degree}
-              </div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#fff', marginBottom: '0.4rem' }}>
-                {d.school}
-              </div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--muted)', marginBottom: '1rem', lineHeight: 1.5 }}>
-                {d.dept}
-              </div>
-              <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.6rem', color: 'var(--cyan2)', letterSpacing: '1.5px' }}>
-                {d.meta}
+              {/* Card body */}
+              <div style={{ padding: '1.4rem 1.5rem 1.6rem' }}>
+                {/* Corner accents */}
+                <div style={{ position: 'absolute', top: '52px', left: '0.9rem', width: '16px', height: '16px', borderTop: `1px solid ${d.color}`, borderLeft: `1px solid ${d.color}`, opacity: 0.5 }} />
+                <div style={{ position: 'absolute', bottom: '0.9rem', right: '1.2rem', width: '16px', height: '16px', borderBottom: `1px solid ${d.color}`, borderRight: `1px solid ${d.color}`, opacity: 0.5 }} />
+
+                {/* Degree type */}
+                <div style={{
+                  fontFamily: "'Orbitron', monospace", fontSize: '0.82rem', fontWeight: 700,
+                  color: d.color, marginBottom: '0.4rem', letterSpacing: '1px',
+                }}>
+                  {d.degree}
+                </div>
+
+                {/* Field */}
+                <div style={{
+                  fontFamily: "'Orbitron', monospace", fontSize: '0.95rem', fontWeight: 700,
+                  color: '#fff', marginBottom: '0.5rem', lineHeight: 1.3,
+                }}>
+                  {d.field}
+                </div>
+
+                {/* School */}
+                <div style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.75)', marginBottom: '0.3rem', fontWeight: 500 }}>
+                  {d.school}
+                </div>
+
+                {/* Dept */}
+                <div style={{ fontSize: '0.78rem', color: 'var(--muted)', marginBottom: '1rem', lineHeight: 1.4 }}>
+                  {d.dept}
+                </div>
+
+                {/* Meta */}
+                <div style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '6px',
+                  fontFamily: "'Share Tech Mono', monospace", fontSize: '0.6rem',
+                  color: d.color, letterSpacing: '1.5px',
+                  background: `${d.color}10`, border: `1px solid ${d.color}30`,
+                  padding: '3px 10px',
+                  clipPath: 'polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px))',
+                }}>
+                  📍 {d.meta}
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <style>{`@media (max-width: 768px) { .edu-grid { grid-template-columns: 1fr !important; } }`}</style>
+      <style>{`
+        @media (max-width: 768px) {
+          .edu-grid { grid-template-columns: 1fr !important; }
+          .edu-section { padding: 1.5rem 5% 2rem !important; }
+        }
+      `}</style>
     </section>
   );
 });
