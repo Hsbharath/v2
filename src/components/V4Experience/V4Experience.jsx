@@ -1,132 +1,127 @@
-import Image from 'next/image';
-import React, { forwardRef } from 'react';
+'use client';
 
-const V4Experience = forwardRef((props, ref) => {
+import React, { forwardRef, useState } from 'react';
+import { SectionHeader } from '../V4Skills/V4Skills';
+
+const experiences = [
+  {
+    period: 'MAR 2025 — PRESENT',
+    role: 'Full Stack Developer',
+    company: 'Freelancer',
+    location: 'Seattle, WA — Remote',
+    tags: ['React', 'Next.js', 'Node.js', 'TypeScript', 'AWS', 'MongoDB'],
+    current: true,
+  },
+  {
+    period: '2016 — 2023',
+    role: 'Web Developer',
+    company: 'The Tranzonic Companies',
+    location: 'Cleveland, OH — USA',
+    tags: ['Angular', 'React', 'TypeScript', 'MSSQL', 'Azure', 'Docker'],
+    current: false,
+  },
+  {
+    period: '2013 — 2014',
+    role: 'Software Engineer II',
+    company: 'Dell International Services',
+    location: 'Bengaluru, KA — India',
+    tags: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'WordPress'],
+    current: false,
+  },
+  {
+    period: '2011 — 2013',
+    role: 'Network Analyst',
+    company: 'Easy Mate Technologies',
+    location: 'Bengaluru, KA — India',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Nginx'],
+    current: false,
+  },
+];
+
+const V4Experience = forwardRef((_props, ref) => {
+  const [hovered, setHovered] = useState(null);
+
   return (
-    <div
-      ref={ref}
-      className='relative w-full min-h-[400px] bg-black flex flex-col xl:flex-row justify-start content-center p-12 my-12'
-    >
-      <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-col xl:flex-row justify-start content-center gap-4 mx-auto py-16'>
-        <div
-          className='w-full xl:w-[20%] flex flex-col justify-start items-start'
-          data-aos='fade-up'
-        >
-          <div className='mb-12'>
-            <h4 className='text-4xl text-white font-medium'>Experience</h4>
-            <svg
-              width='154'
-              height='30'
-              viewBox='0 0 154 30'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M2.06599 28C2.05351 27.9965 1.96465 27.9863 2.01566 27.943C2.52788 27.5082 3.63262 27.0892 4.16309 26.8322C11.1268 23.4583 18.1117 20.1383 25.3689 17.2336C32.1147 14.5336 38.9679 12.0219 46.0044 9.91356C49.7342 8.79597 53.608 7.73705 57.53 7.20772C58.597 7.0637 60.5118 6.75549 61.6068 7.0653C63.1811 7.51078 60.9971 10.0511 60.8015 10.3337C58.9264 13.0425 56.5289 15.403 54.3592 17.9314C53.937 18.4233 53.2134 19.0909 53.0254 19.7044C52.8072 20.417 54.7693 19.4907 55.5503 19.1704C63.8854 15.752 71.9899 12.0395 80.531 8.97364C86.0714 6.98488 92.612 4.18166 98.868 4.60156C99.6124 4.65153 100.947 4.84544 101.535 5.38483C102.435 6.20988 101.776 7.69603 101.443 8.55352C101.04 9.59236 100.493 10.553 99.9081 11.5228C99.6381 11.9705 98.9734 12.7431 99.0861 13.2959C99.2647 14.1721 101.225 13.2229 102.19 12.8757C106.124 11.4595 109.922 9.76882 113.833 8.30429C120.467 5.81971 127.488 3.1985 134.712 2.24463C136.394 2.02247 139.636 1.45718 140.088 3.4765C140.662 6.03625 139.815 8.82726 139.803 11.4089C139.801 11.9763 139.714 12.9578 140.6 13.125C141.589 13.3116 142.911 12.8151 143.813 12.5624C145.187 12.1775 146.521 11.6993 147.923 11.3875C149.306 11.0801 150.6 11.0852 152 10.9532'
-                stroke='#F3BB44'
-                strokeWidth='3'
-                strokeLinecap='round'
-              />
-            </svg>
-          </div>
-        </div>
-        <div
-          className='w-full xl:w-[80%] flex flex-col justify-start items-start gap-12'
-          data-aos='fade-left'
-        >
-          <div className='w-full flex flex-col lg:flex-row justify-start items-start gap-12 overflow-hidden'>
+    <section ref={ref} style={{
+      height: '100vh', display: 'flex', flexDirection: 'column',
+      justifyContent: 'center',
+      padding: '60px 3rem 2rem',
+      position: 'relative', overflow: 'hidden',
+    }}>
+      <div style={{ position: 'absolute', top: '30%', right: '0', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(0,191,165,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
+        <SectionHeader num='02 // EXPERIENCE' title='MISSION LOG' />
+
+        <div style={{ position: 'relative', paddingLeft: '2rem' }}>
+          {/* Timeline line */}
+          <div style={{
+            position: 'absolute', left: 0, top: 0, bottom: 0,
+            width: '1px',
+            background: 'linear-gradient(180deg, var(--cyan), var(--wire), transparent)',
+          }} />
+
+          {experiences.map((exp, i) => (
             <div
-              className='relative w-full h-[300px] lg:w-[400px] lg:h-[500px] flex flex-col justify-start items-start'
-              data-aos='flip-right'
+              key={i}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                position: 'relative',
+                marginBottom: i < experiences.length - 1 ? '1.4rem' : 0,
+                background: hovered === i ? 'var(--surface2)' : 'var(--surface)',
+                border: `1px solid ${hovered === i ? 'var(--cyan2)' : exp.current ? 'rgba(0,229,255,0.3)' : 'var(--border)'}`,
+                padding: '1rem 1.2rem',
+                clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
+                transition: 'all 0.2s',
+                display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem',
+              }}
             >
-              <Image
-                src='/Icons/tranzonic.webp'
-                alt='Tranzonic Image'
-                width={500}
-                height={500}
-                className='object-cover grayscale w-full h-full'
-              />
-              <div className='absolute bottom-0 w-full h-[30%] gradient-black flex justify-start items-end p-6 z-50'>
-                <div>
-                  <h1 className='text-2xl md:text-3xl text-[#f3bb44] font-bold mb-3'>
-                    Web Developer
-                  </h1>
-                  <p className='text-lg text-white'>The Tranzonic Companies</p>
-                  <p className='text-lg text-white'>Cleveland, OH</p>
-                  <p className='text-lg text-[#f3bb44]'>2016 - 2023</p>
+              {/* Timeline dot */}
+              <div style={{
+                position: 'absolute', left: '-2.5rem', top: '1.1rem',
+                width: '10px', height: '10px', borderRadius: '50%',
+                background: exp.current ? 'var(--accent)' : 'var(--surface)',
+                border: `2px solid ${exp.current ? 'var(--accent)' : 'var(--cyan)'}`,
+                boxShadow: exp.current ? '0 0 10px var(--accent)' : '0 0 8px rgba(0,229,255,0.4)',
+              }} />
+
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '2px' }}>
+                  <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.62rem', color: exp.current ? 'var(--accent)' : 'var(--cyan)', letterSpacing: '2px' }}>
+                    {exp.period}
+                  </span>
+                  {exp.current && (
+                    <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.55rem', color: 'var(--accent)', letterSpacing: '1px', border: '1px solid var(--accent)', padding: '1px 6px', clipPath: 'polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px))' }}>
+                      ACTIVE
+                    </span>
+                  )}
+                </div>
+                <div style={{ fontFamily: "'Orbitron', monospace", fontSize: '0.95rem', fontWeight: 700, color: '#fff', marginBottom: '2px' }}>
+                  {exp.role}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--teal)', fontWeight: 600, marginBottom: '2px' }}>{exp.company}</div>
+                <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.6rem', color: 'var(--muted)', letterSpacing: '1px' }}>
+                  📍 {exp.location}
                 </div>
               </div>
-            </div>
-            <div
-              className='relative w-full h-[300px] lg:w-[400px] lg:h-[500px] flex flex-col justify-start items-start z-20 overflow-hidden'
-              data-aos='flip-right'
-            >
-              <Image
-                src='/Icons/dell.jpg'
-                alt='Dell Image'
-                width={500}
-                height={500}
-                className='object-cover grayscale w-full h-full'
-              />
-              <div className='absolute bottom-0 w-full h-[30%] gradient-black flex justify-start items-end p-6 z-50'>
-                <div>
-                  <h1 className='text-2xl md:text-3xl text-[#f3bb44] font-bold mb-3'>
-                    Software Engineer II
-                  </h1>
-                  <p className='text-lg text-white'>
-                    Dell International Services
-                  </p>
-                  <p className='text-lg text-white'>Bengaluru, KA</p>
-                  <p className='text-lg text-[#f3bb44]'>2013 - 2014</p>
-                </div>
+
+              {/* Tags */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', justifyContent: 'flex-end', maxWidth: '300px' }}>
+                {exp.tags.map(tag => (
+                  <span key={tag} style={{
+                    fontFamily: "'Share Tech Mono', monospace", fontSize: '0.55rem',
+                    color: 'var(--muted)', letterSpacing: '1px',
+                    border: '1px solid var(--border)', padding: '2px 7px',
+                    clipPath: 'polygon(0 0, calc(100% - 4px) 0, 100% 4px, 100% 100%, 4px 100%, 0 calc(100% - 4px))',
+                  }}>{tag}</span>
+                ))}
               </div>
             </div>
-            <div
-              className='relative w-full h-[300px] lg:w-[400px] lg:h-[500px] flex flex-col justify-start items-start z-20 overflow-hidden'
-              data-aos='flip-right'
-            >
-              <Image
-                src='/Icons/easymate.png'
-                alt='Tranzonic Image'
-                width={500}
-                height={500}
-                className='object-cover grayscale w-full h-full'
-              />
-              <div className='absolute bottom-0 w-full h-[30%] gradient-black flex justify-start items-end p-6 z-50'>
-                <div>
-                  <h1 className='text-2xl md:text-3xl text-[#f3bb44] font-bold mb-3'>
-                    Network Analyst
-                  </h1>
-                  <p className='text-lg text-white'>Easy Mate Technologies</p>
-                  <p className='text-lg text-white'>Bengaluru, KA</p>
-                  <p className='text-lg text-[#f3bb44]'>2011 - 2013</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* <div className='w-full hidden xl:block'>
-            <div className='w-full flex justify-between items-center py-12'>
-              <a
-                href='/'
-                className='w-[80px] h-[80px] flex justify-center items-center z-50'
-              >
-                <span className='material-symbols-outlined text-white border-[#f3bb44] border-2 p-4 rounded-full'>
-                  west
-                </span>
-              </a>
-              <a
-                href='/'
-                className='w-[80px] h-[80px] flex justify-center items-center z-50'
-              >
-                <span className='material-symbols-outlined text-white border-[#f3bb44] border-2 p-4 rounded-full'>
-                  east
-                </span>
-              </a>
-            </div>
-          </div> */}
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 });
 

@@ -1,5 +1,24 @@
 [
     {
+        "start": "Mar 2025",
+        "end": "Present",
+        "company": "Freelancer",
+        "place": "Remote",
+        "designation": "Full Stack Developer",
+        "description": "Working as an independent freelancer delivering robotics software solutions, full-stack web applications, and automation projects for various clients.",
+        "skills": [
+            "React",
+            "Next.js",
+            "Node.js",
+            "Python",
+            "TypeScript",
+            "Docker",
+            "AWS",
+            "MongoDB",
+            "PostgreSQL"
+        ]
+    },
+    {
         "start": 2016,
         "end": 2023,
         "company": "The Tranzonic Companies",

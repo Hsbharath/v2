@@ -1,206 +1,142 @@
+'use client';
+
 import React, { useState, forwardRef } from 'react';
+import { SectionHeader } from '../V4Skills/V4Skills';
 
-const V4Contact = forwardRef((props, ref) => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+const inputStyle = {
+  background: 'var(--surface)',
+  border: '1px solid var(--border)',
+  color: 'var(--text)',
+  padding: '0.55rem 0.8rem',
+  fontFamily: "'Rajdhani', sans-serif",
+  fontSize: '0.9rem',
+  outline: 'none', width: '100%',
+  clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px))',
+  transition: 'border-color 0.2s',
+};
+const labelStyle = {
+  fontFamily: "'Share Tech Mono', monospace",
+  fontSize: '0.6rem', color: 'var(--cyan)',
+  letterSpacing: '2px', textTransform: 'uppercase',
+};
 
-  const [formErrors, setFormErrors] = useState({});
-  const [submitMessage, setSubmitMessage] = useState('');
+const V4Contact = forwardRef((_props, ref) => {
+  const [form, setForm] = useState({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+  const [errors, setErrors] = useState({});
+  const [sent, setSent] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handle = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-    setFormErrors({
-      ...formErrors,
-      [name]: '',
-    });
+    setForm(p => ({ ...p, [name]: value }));
+    setErrors(p => ({ ...p, [name]: '' }));
   };
 
-  const handleSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
-    // Validate form
-    let errors = {};
-    if (!formData.firstName.trim()) {
-      errors.firstName = 'First Name is required';
-    }
-    if (!formData.lastName.trim()) {
-      errors.lastName = 'Last Name is required';
-    }
-    if (!formData.email.trim()) {
-      errors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = 'Email is invalid';
-    }
-    if (!formData.message.trim()) {
-      errors.message = 'Message is required';
-    }
-
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-    } else {
-      // Simulate sending data (replace with actual API call if needed)
-      setTimeout(() => {
-        setSubmitMessage('Message sent successfully!');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          message: '',
-        });
-      }, 1000);
-    }
+    const errs = {};
+    if (!form.firstName.trim()) errs.firstName = 'Required';
+    if (!form.lastName.trim()) errs.lastName = 'Required';
+    if (!form.email.trim()) errs.email = 'Required';
+    else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = 'Invalid';
+    if (!form.message.trim()) errs.message = 'Required';
+    if (Object.keys(errs).length) { setErrors(errs); return; }
+    setTimeout(() => {
+      setSent(true);
+      setForm({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+    }, 500);
   };
+
+  const focusStyle = (e) => { e.target.style.borderColor = 'var(--cyan)'; e.target.style.boxShadow = '0 0 12px rgba(0,229,255,0.1)'; };
+  const blurStyle = (e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none'; };
 
   return (
-    <div
-      ref={ref}
-      className='relative w-full min-h-[400px] flex flex-col xl:flex-row justify-start content-center gap-12 p-6 xl:p-12 mt-12'
-    >
-      <div className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl flex flex-col xl:flex-row justify-start content-center gap-12 mx-auto py-16'>
-        <div
-          className='w-full xl:w-[20%] flex flex-col justify-start items-start'
-          data-aos='fade-up'
-        >
-          <div className='mb-12'>
-            <h4 className='text-4xl text-black font-medium'>Contact</h4>
-            <svg
-              width='154'
-              height='30'
-              viewBox='0 0 154 30'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <path
-                d='M2.06599 28C2.05351 27.9965 1.96465 27.9863 2.01566 27.943C2.52788 27.5082 3.63262 27.0892 4.16309 26.8322C11.1268 23.4583 18.1117 20.1383 25.3689 17.2336C32.1147 14.5336 38.9679 12.0219 46.0044 9.91356C49.7342 8.79597 53.608 7.73705 57.53 7.20772C58.597 7.0637 60.5118 6.75549 61.6068 7.0653C63.1811 7.51078 60.9971 10.0511 60.8015 10.3337C58.9264 13.0425 56.5289 15.403 54.3592 17.9314C53.937 18.4233 53.2134 19.0909 53.0254 19.7044C52.8072 20.417 54.7693 19.4907 55.5503 19.1704C63.8854 15.752 71.9899 12.0395 80.531 8.97364C86.0714 6.98488 92.612 4.18166 98.868 4.60156C99.6124 4.65153 100.947 4.84544 101.535 5.38483C102.435 6.20988 101.776 7.69603 101.443 8.55352C101.04 9.59236 100.493 10.553 99.9081 11.5228C99.6381 11.9705 98.9734 12.7431 99.0861 13.2959C99.2647 14.1721 101.225 13.2229 102.19 12.8757C106.124 11.4595 109.922 9.76882 113.833 8.30429C120.467 5.81971 127.488 3.1985 134.712 2.24463C136.394 2.02247 139.636 1.45718 140.088 3.4765C140.662 6.03625 139.815 8.82726 139.803 11.4089C139.801 11.9763 139.714 12.9578 140.6 13.125C141.589 13.3116 142.911 12.8151 143.813 12.5624C145.187 12.1775 146.521 11.6993 147.923 11.3875C149.306 11.0801 150.6 11.0852 152 10.9532'
-                stroke='#F3BB44'
-                strokeWidth='3'
-                strokeLinecap='round'
-              />
-            </svg>
-          </div>
-          <h1 className='text-xl text-black font-light'>
-            Write your{' '}
-            <span className='text-[#f3bb44] font-bold'>message!</span>. if you
-            have any attachements to share please send it to{' '}
-            <a href='mailto:bharathh.868@gmail.com'>
-              <span className='text-[#f3bb44] font-bold'>
-                bharathh.868@gmail.com
-              </span>
-            </a>
-          </h1>
-        </div>
-        <div
-          className='w-full xl:w-[80%] flex flex-col justify-start items-start gap-12'
-          data-aos='fade-left'
-        >
-          <h1 className='text-2xl xl:text-4xl text-black font-medium'>
-            Looking for someone to{' '}
-            <span className='text-[#f3bb44]'> help with your project? </span>Or{' '}
-            <span className='text-[#f3bb44]'>
-              Want to hire for freelance work?{' '}
-            </span>
-            please leave a message i will get back ASAP.
-          </h1>
-          <form
-            onSubmit={handleSubmit}
-            className='w-full flex flex-col justify-start items-start gap-6'
-          >
-            <div className='w-full flex flex-col xl:flex-row justify-start items-start gap-6'>
-              <div className='w-full xl:w-1/2 flex flex-col justify-start items-start gap-2'>
-                <label>First Name *</label>
-                <input
-                  className='w-full h-[50px] bg-white border-2 px-2'
-                  type='text'
-                  name='firstName'
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                />
-                {formErrors.firstName && (
-                  <span className='w-full error bg-red-600 text-white p-2'>
-                    {formErrors.firstName}
-                  </span>
-                )}
+    <section ref={ref} style={{
+      height: '100vh', display: 'flex', flexDirection: 'column',
+      justifyContent: 'center',
+      padding: '60px 3rem 2rem',
+      position: 'relative', overflow: 'hidden',
+    }}>
+      <div style={{ position: 'absolute', top: '20%', right: '5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(57,255,20,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
+        <SectionHeader num='04 // CONTACT' title='TRANSMIT' />
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '3rem', alignItems: 'start' }} className='contact-grid'>
+
+          {/* Form */}
+          <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem' }}>
+              {[['firstName', 'First Name'], ['lastName', 'Last Name']].map(([name, label]) => (
+                <div key={name} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <label style={labelStyle}>{label}</label>
+                  <input style={inputStyle} type='text' name={name} value={form[name]} onChange={handle} onFocus={focusStyle} onBlur={blurStyle} />
+                  {errors[name] && <span style={{ fontFamily: "'Share Tech Mono'", fontSize: '0.55rem', color: 'var(--accent)' }}>{errors[name]}</span>}
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <label style={labelStyle}>Email</label>
+                <input style={inputStyle} type='email' name='email' value={form.email} onChange={handle} onFocus={focusStyle} onBlur={blurStyle} />
+                {errors.email && <span style={{ fontFamily: "'Share Tech Mono'", fontSize: '0.55rem', color: 'var(--accent)' }}>{errors.email}</span>}
               </div>
-              <div className='w-full xl:w-1/2 flex flex-col justify-start items-start gap-2'>
-                <label>Last Name *</label>
-                <input
-                  className='w-full h-[50px] bg-white border-2 px-2'
-                  type='text'
-                  name='lastName'
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-                />
-                {formErrors.lastName && (
-                  <span className='w-full error bg-red-600 text-white p-2'>
-                    {formErrors.lastName}
-                  </span>
-                )}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <label style={labelStyle}>Phone</label>
+                <input style={inputStyle} type='tel' name='phone' value={form.phone} onChange={handle} onFocus={focusStyle} onBlur={blurStyle} />
               </div>
             </div>
-            <div className='w-full flex flex-col xl:flex-row justify-start items-start gap-6'>
-              <div className='w-full xl:w-1/2 flex flex-col justify-start items-start gap-2'>
-                <label>Email *</label>
-                <input
-                  className='w-full h-[50px] bg-white border-2 px-2'
-                  type='email'
-                  name='email'
-                  value={formData.email}
-                  onChange={handleInputChange}
-                />
-                {formErrors.email && (
-                  <span className='w-full error bg-red-600 text-white p-2'>
-                    {formErrors.email}
-                  </span>
-                )}
-              </div>
-              <div className='w-full xl:w-1/2 flex flex-col justify-start items-start gap-2'>
-                <label>Phone</label>
-                <input
-                  className='w-full h-[50px] bg-white border-2 px-2'
-                  type='tel'
-                  name='phone'
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                />
-              </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <label style={labelStyle}>Message</label>
+              <textarea style={{ ...inputStyle, minHeight: '90px', resize: 'vertical' }} name='message' value={form.message} onChange={handle} onFocus={focusStyle} onBlur={blurStyle} />
+              {errors.message && <span style={{ fontFamily: "'Share Tech Mono'", fontSize: '0.55rem', color: 'var(--accent)' }}>{errors.message}</span>}
             </div>
-            <div className='w-full flex flex-col xl:flex-row justify-start items-start gap-6'>
-              <div className='w-full flex flex-col justify-start items-start'>
-                <label>Message *</label>
-                <textarea
-                  className='w-full min-h-[100px] bg-white border-2 px-2'
-                  name='message'
-                  value={formData.message}
-                  onChange={handleInputChange}
-                ></textarea>
-                {formErrors.message && (
-                  <span className='w-full error bg-red-600 text-white p-2'>
-                    {formErrors.message}
-                  </span>
-                )}
-              </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '0.2rem' }}>
+              <button type='submit' style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                padding: '0.7rem 1.8rem', background: 'transparent',
+                border: '1px solid var(--accent)', color: 'var(--accent)',
+                fontFamily: "'Share Tech Mono', monospace",
+                fontSize: '0.72rem', letterSpacing: '2px', textTransform: 'uppercase',
+                clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(57,255,20,0.1)'; e.currentTarget.style.boxShadow = '0 0 18px rgba(57,255,20,0.2)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.boxShadow = 'none'; }}>
+                <svg width='12' height='12' viewBox='0 0 12 12' fill='none'><path d='M1 6h10M7 2l4 4-4 4' stroke='currentColor' strokeWidth='1.5'/></svg>
+                Transmit
+              </button>
+              {sent && <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '1px' }}>TRANSMISSION SENT ✓</span>}
             </div>
-            <button type='submit' className='w-[100px] h-[50px] bg-[#f3bb44]'>
-              <a>Submit</a>
-            </button>
-            {submitMessage && (
-              <p className='success bg-green-600 text-white p-2 w-full '>
-                {submitMessage}
-              </p>
-            )}
           </form>
+
+          {/* Info */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
+            {[
+              { label: 'Direct Channel', links: [{ href: 'tel:+12342815147', text: '+1 (234) 281-5147' }] },
+              { label: 'Email Nodes', links: [{ href: 'mailto:hsbharath01@gmail.com', text: 'hsbharath01@gmail.com' }, { href: 'mailto:bharathh.868@gmail.com', text: 'bharathh.868@gmail.com' }] },
+              { label: 'Network Uplinks', links: [{ href: 'https://www.linkedin.com/in/bharathhunkundasreenivasa', text: 'LinkedIn', ext: true }, { href: 'https://www.reddit.com/user/learning-goodlife/', text: 'Reddit', ext: true }] },
+            ].map(({ label, links }) => (
+              <div key={label}>
+                <div className='contact-block-label'>{label}</div>
+                {links.map(({ href, text, ext }) => (
+                  <a key={href} href={href} target={ext ? '_blank' : undefined} rel={ext ? 'noopener noreferrer' : undefined}
+                    style={{ display: 'block', color: 'var(--text)', textDecoration: 'none', fontSize: '0.9rem', marginBottom: '3px', transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = 'var(--cyan)'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'var(--text)'}>{text}</a>
+                ))}
+              </div>
+            ))}
+            <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
+              <div style={{ fontFamily: "'Orbitron', monospace", fontSize: '0.75rem', color: 'var(--muted)', letterSpacing: '2px', marginBottom: '4px' }}>HS.BHARATH // v2.0</div>
+              <div style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.55rem', color: 'var(--muted)', letterSpacing: '1px' }}>
+                Built with Next.js + Tailwind · Hosted on Vercel
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      <style>{`@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr !important; } }`}</style>
+    </section>
   );
 });
 

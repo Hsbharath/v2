@@ -1,46 +1,170 @@
-import React, { forwardRef } from 'react';
+'use client';
 
-import V4TechStack from '../V4TechStack/V4TechStack';
+import React, { forwardRef, useState, useEffect } from 'react';
 
-const V4Skills = forwardRef((props, ref) => {
+const CATEGORIES = [
+  {
+    id: 'frontend',
+    label: 'Front-End',
+    color: 'var(--cyan)',
+    skills: ['React', 'Angular', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Tailwind', 'Bootstrap', 'Bulma', 'jQuery', 'Redux', 'NgRx'],
+  },
+  {
+    id: 'backend',
+    label: 'Back-End',
+    color: 'var(--teal)',
+    skills: ['Node.js', 'Express', 'GraphQL', 'MSSQL', 'MySQL', 'PostgreSQL', 'MongoDB', 'Redis'],
+  },
+  {
+    id: 'devops',
+    label: 'DevOps & Cloud',
+    color: 'var(--accent)',
+    skills: ['Docker', 'Azure', 'AWS', 'Git', 'Bitbucket'],
+  },
+  {
+    id: 'testing',
+    label: 'Testing & Tools',
+    color: '#a78bfa',
+    skills: ['Jest', 'Jasmine', 'Power BI'],
+  },
+];
+
+const Tag = ({ name, color, delay }) => {
+  const [visible, setVisible] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), delay);
+    return () => clearTimeout(t);
+  }, [delay]);
+
   return (
-    <div
-      ref={ref}
-      className='w-full lg:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto min-h-[400px] flex flex-col xl:flex-row justify-start content-center p-6 my-12 gap-8'
+    <span
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'inline-block',
+        fontFamily: "'Share Tech Mono', monospace",
+        fontSize: '0.75rem',
+        letterSpacing: '1.5px',
+        padding: '5px 14px',
+        border: `1px solid ${hovered ? color : 'var(--border)'}`,
+        color: hovered ? color : 'var(--muted)',
+        background: hovered ? `${color}12` : 'var(--surface)',
+        clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px))',
+        transition: 'all 0.18s',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(8px)',
+        transitionProperty: 'opacity, transform, color, border-color, background',
+        transitionDuration: '0.35s',
+        whiteSpace: 'nowrap',
+      }}
     >
-      <div
-        className='w-full xl:w-[33%] flex flex-col justify-start items-start'
-        data-aos='fade-right'
-      >
-        <div className='mb-12'>
-          <h4 className='text-4xl font-medium'>Skills</h4>
-          <svg
-            width='154'
-            height='30'
-            viewBox='0 0 154 30'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'
-          >
-            <path
-              d='M2.06599 28C2.05351 27.9965 1.96465 27.9863 2.01566 27.943C2.52788 27.5082 3.63262 27.0892 4.16309 26.8322C11.1268 23.4583 18.1117 20.1383 25.3689 17.2336C32.1147 14.5336 38.9679 12.0219 46.0044 9.91356C49.7342 8.79597 53.608 7.73705 57.53 7.20772C58.597 7.0637 60.5118 6.75549 61.6068 7.0653C63.1811 7.51078 60.9971 10.0511 60.8015 10.3337C58.9264 13.0425 56.5289 15.403 54.3592 17.9314C53.937 18.4233 53.2134 19.0909 53.0254 19.7044C52.8072 20.417 54.7693 19.4907 55.5503 19.1704C63.8854 15.752 71.9899 12.0395 80.531 8.97364C86.0714 6.98488 92.612 4.18166 98.868 4.60156C99.6124 4.65153 100.947 4.84544 101.535 5.38483C102.435 6.20988 101.776 7.69603 101.443 8.55352C101.04 9.59236 100.493 10.553 99.9081 11.5228C99.6381 11.9705 98.9734 12.7431 99.0861 13.2959C99.2647 14.1721 101.225 13.2229 102.19 12.8757C106.124 11.4595 109.922 9.76882 113.833 8.30429C120.467 5.81971 127.488 3.1985 134.712 2.24463C136.394 2.02247 139.636 1.45718 140.088 3.4765C140.662 6.03625 139.815 8.82726 139.803 11.4089C139.801 11.9763 139.714 12.9578 140.6 13.125C141.589 13.3116 142.911 12.8151 143.813 12.5624C145.187 12.1775 146.521 11.6993 147.923 11.3875C149.306 11.0801 150.6 11.0852 152 10.9532'
-              stroke='#F3BB44'
-              strokeWidth='3'
-              strokeLinecap='round'
-            />
-          </svg>
+      {name}
+    </span>
+  );
+};
+
+const V4Skills = forwardRef((_props, ref) => {
+  const [activeTab, setActiveTab] = useState('frontend');
+  const active = CATEGORIES.find(c => c.id === activeTab);
+
+  return (
+    <section ref={ref} style={{
+      height: '100vh', display: 'flex', flexDirection: 'column',
+      justifyContent: 'center',
+      padding: '60px 3rem 2rem',
+      position: 'relative', overflow: 'hidden',
+    }}>
+      {/* Glow */}
+      <div style={{ position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)', width: '600px', height: '300px', background: 'radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
+
+        {/* Section header */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', marginBottom: '2.5rem' }}>
+          <div style={{
+            fontFamily: "'Share Tech Mono', monospace", fontSize: '0.65rem',
+            color: 'var(--cyan)', letterSpacing: '2px',
+            background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.2)',
+            padding: '4px 10px',
+            clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px))',
+          }}>01 // SKILLS</div>
+          <h2 style={{ fontFamily: "'Orbitron', monospace", fontSize: '1.8rem', fontWeight: 700, color: '#fff', letterSpacing: '3px' }}>
+            TECH STACK
+          </h2>
+          <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, var(--border), transparent)' }} />
         </div>
-        <h1 className='text-2xl xl:text-5xl font-medium'>
-          I have experience working with technology stack that includes
-        </h1>
+
+        {/* Category tabs */}
+        <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+          {CATEGORIES.map(cat => (
+            <button key={cat.id} onClick={() => setActiveTab(cat.id)} style={{
+              background: activeTab === cat.id ? `${cat.color}18` : 'var(--surface)',
+              border: `1px solid ${activeTab === cat.id ? cat.color : 'var(--border)'}`,
+              color: activeTab === cat.id ? cat.color : 'var(--muted)',
+              fontFamily: "'Share Tech Mono', monospace",
+              fontSize: '0.7rem', letterSpacing: '2px', textTransform: 'uppercase',
+              padding: '6px 18px',
+              clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px))',
+              transition: 'all 0.2s',
+              boxShadow: activeTab === cat.id ? `0 0 14px ${cat.color}30` : 'none',
+            }}>
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Active category label + count */}
+        <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'baseline', gap: '1rem' }}>
+          <span style={{ fontFamily: "'Orbitron', monospace", fontSize: '1.1rem', fontWeight: 700, color: active.color }}>
+            {active.label}
+          </span>
+          <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.6rem', color: 'var(--muted)', letterSpacing: '2px' }}>
+            {active.skills.length} MODULES LOADED
+          </span>
+        </div>
+
+        {/* Tags */}
+        <div key={activeTab} style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', maxWidth: '900px' }}>
+          {active.skills.map((skill, i) => (
+            <Tag key={skill} name={skill} color={active.color} delay={i * 40} />
+          ))}
+        </div>
+
+        {/* Total count bar */}
+        <div style={{
+          marginTop: '3rem',
+          display: 'flex', alignItems: 'center', gap: '1.5rem',
+          fontFamily: "'Share Tech Mono', monospace",
+          fontSize: '0.6rem', color: 'var(--muted)', letterSpacing: '2px',
+        }}>
+          {CATEGORIES.map(cat => (
+            <span key={cat.id} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: cat.color, display: 'inline-block', boxShadow: `0 0 6px ${cat.color}` }} />
+              {cat.skills.length} {cat.label.toUpperCase()}
+            </span>
+          ))}
+          <span style={{ marginLeft: 'auto', color: 'var(--cyan)' }}>
+            {CATEGORIES.reduce((a, c) => a + c.skills.length, 0)} TOTAL
+          </span>
+        </div>
       </div>
-      <div
-        className='w-full xl:w-[67%] flex flex-col justify-start items-start'
-        data-aos='fade-left'
-      >
-        <V4TechStack />
-      </div>
-    </div>
+    </section>
   );
 });
 
 export default V4Skills;
+export const SectionHeader = ({ num, title }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem', marginBottom: '2.5rem' }}>
+    <div style={{
+      fontFamily: "'Share Tech Mono', monospace", fontSize: '0.65rem',
+      color: 'var(--cyan)', letterSpacing: '2px',
+      background: 'rgba(0,229,255,0.08)', border: '1px solid rgba(0,229,255,0.2)',
+      padding: '4px 10px',
+      clipPath: 'polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px))',
+    }}>{num}</div>
+    <h2 style={{ fontFamily: "'Orbitron', monospace", fontSize: '1.8rem', fontWeight: 700, color: '#fff', letterSpacing: '3px' }}>{title}</h2>
+    <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, var(--border), transparent)' }} />
+  </div>
+);
