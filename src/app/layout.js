@@ -5,29 +5,24 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import React from 'react';
 
-import { Inter, Merriweather } from 'next/font/google';
+import { Rajdhani } from 'next/font/google';
 import Script from 'next/script';
 
 import './globalicon.css';
 import './globals.css';
 import { Providers } from './providers';
 
-// Define font variables
-const inter = Inter({ subsets: ['latin'], variable: '--font-In' });
-const merri = Merriweather({
+const rajdhani = Rajdhani({
   subsets: ['latin'],
-  weight: ['700', '900'],
-  variable: '--font-Ur',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-Raj',
 });
 
-// Metadata
 export const metadata = {
   title: 'Bharath Hunkunda Sreenivasa',
-  description:
-    'Experienced web developer with 7 years of expertise in front-end and back-end development.',
+  description: 'Robotics & Full Stack Developer — 7+ years experience.',
 };
 
-// Layout component
 export default function RootLayout({ children }) {
   return (
     <StoreProvider>
@@ -36,8 +31,12 @@ export default function RootLayout({ children }) {
           {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
             <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
           ) : null}
+          <link
+            href='https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap'
+            rel='stylesheet'
+          />
         </head>
-        <body className={`${inter.variable} ${merri.variable} font-In`}>
+        <body className={rajdhani.variable}>
           <Providers>
             {children}
             <SpeedInsights />
