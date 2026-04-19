@@ -8,38 +8,31 @@ import V4Education from '../V4Education/V4Education';
 import V4Contact from '../V4Contact/V4Contact';
 import BotChat from '../BotChat/BotChat';
 
-// Typewriter — cursor only blinks while actively typing, disappears after last string done
+// Typewriter — loops forever, cursor always visible while cycling
 const useTyped = (strings, speed = 80, pause = 1600) => {
   const [display, setDisplay] = useState('');
   const [idx, setIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [deleting, setDeleting] = useState(false);
-  const [done, setDone] = useState(false);
 
   useEffect(() => {
-    if (done) return;
     const current = strings[idx % strings.length];
     let timeout;
     if (!deleting && charIdx < current.length) {
       timeout = setTimeout(() => setCharIdx(c => c + 1), speed);
     } else if (!deleting && charIdx === current.length) {
-      // Last string — stop here, don't delete
-      if (idx === strings.length - 1) {
-        setDone(true);
-        return;
-      }
       timeout = setTimeout(() => setDeleting(true), pause);
     } else if (deleting && charIdx > 0) {
       timeout = setTimeout(() => setCharIdx(c => c - 1), speed / 2);
     } else {
       setDeleting(false);
-      setIdx(i => i + 1);
+      setIdx(i => (i + 1) % strings.length);
     }
     setDisplay(current.slice(0, charIdx));
     return () => clearTimeout(timeout);
-  }, [charIdx, deleting, idx, strings, speed, pause, done]);
+  }, [charIdx, deleting, idx, strings, speed, pause]);
 
-  return { text: display, typing: !done };
+  return { text: display, typing: true };
 };
 
 const StatBox = ({ value, label }) => (
@@ -150,21 +143,23 @@ const BioPanelContent = ({ isMobile, onContact, onStack }) => {
       </div>
 
       {/* Journey */}
-      <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px', background: 'rgba(0,229,255,0.07)', border: '1px solid rgba(0,229,255,0.25)', padding: '0.7rem 1rem', clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))' }}>
-        <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.55rem', color: '#00e5ff', letterSpacing: '3px', textTransform: 'uppercase', marginRight: '0.6rem', fontWeight: 700 }}>PATH</span>
-        {JOURNEY.map((stop, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0.25rem 0.65rem', background: stop.accent ? 'rgba(57,255,20,0.15)' : 'rgba(0,229,255,0.08)', border: stop.accent ? '1px solid rgba(57,255,20,0.6)' : '1px solid rgba(0,229,255,0.2)', borderRadius: '2px' }}>
-              <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.5rem', color: stop.accent ? '#39ff14' : '#00e5ff', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>{stop.label}</span>
-              <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.72rem', color: stop.accent ? '#39ff14' : '#e0f0f8', letterSpacing: '0.5px', fontWeight: stop.accent ? 700 : 500, textShadow: stop.accent ? '0 0 10px rgba(57,255,20,0.7)' : 'none' }}>{stop.value}</span>
+      <div style={{ background: 'rgba(0,229,255,0.07)', border: '1px solid rgba(0,229,255,0.25)', padding: '0.7rem 1rem', clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px))', width: '100%' }}>
+        <span style={{ display: 'block', fontFamily: "'Share Tech Mono', monospace", fontSize: '0.55rem', color: '#00e5ff', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '0.5rem', fontWeight: 700 }}>PATH</span>
+        <div style={{ display: 'flex', alignItems: 'center', flexWrap: isMobile ? 'wrap' : 'nowrap', gap: isMobile ? '6px' : '4px', justifyContent: isMobile ? 'flex-start' : 'space-between' }}>
+          {JOURNEY.map((stop, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', flex: isMobile ? '0 0 auto' : '1', justifyContent: 'center' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0.3rem 0.8rem', width: '100%', background: stop.accent ? 'rgba(57,255,20,0.15)' : 'rgba(0,229,255,0.08)', border: stop.accent ? '1px solid rgba(57,255,20,0.6)' : '1px solid rgba(0,229,255,0.2)', borderRadius: '2px' }}>
+                <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.5rem', color: stop.accent ? '#39ff14' : '#00e5ff', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '2px' }}>{stop.label}</span>
+                <span style={{ fontFamily: "'Share Tech Mono', monospace", fontSize: '0.72rem', color: stop.accent ? '#39ff14' : '#e0f0f8', letterSpacing: '0.5px', fontWeight: stop.accent ? 700 : 500, textShadow: stop.accent ? '0 0 10px rgba(57,255,20,0.7)' : 'none', whiteSpace: 'nowrap' }}>{stop.value}</span>
+              </div>
+              {i < JOURNEY.length - 1 && !isMobile && (
+                <svg width='14' height='8' viewBox='0 0 14 8' fill='none' style={{ opacity: 0.7, margin: '0 4px', flexShrink: 0 }}>
+                  <path d='M0 4h10M7 1l4 3-4 3' stroke='#00e5ff' strokeWidth='1.2'/>
+                </svg>
+              )}
             </div>
-            {i < JOURNEY.length - 1 && (
-              <svg width='14' height='8' viewBox='0 0 14 8' fill='none' style={{ opacity: 0.7, margin: '0 2px' }}>
-                <path d='M0 4h10M7 1l4 3-4 3' stroke='#00e5ff' strokeWidth='1.2'/>
-              </svg>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
