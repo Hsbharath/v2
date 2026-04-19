@@ -89,8 +89,8 @@ const V4Bio = ({ scrollAction }) => {
       {/* LEFT — bio content */}
       <div style={{
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        padding: '2rem 2.5rem 2rem 3rem',
-        borderRight: '1px solid var(--border)',
+        padding: isMobile ? '1.5rem 1.25rem' : '2rem 2.5rem 2rem 3rem',
+        borderRight: isMobile ? 'none' : '1px solid var(--border)',
         position: 'relative', zIndex: 1, overflow: 'hidden',
       }}>
 
@@ -208,24 +208,35 @@ const V4Bio = ({ scrollAction }) => {
         </div>
       )}
 
-      {/* Mobile: BotChat full-screen overlay */}
+      {/* Mobile: chatbot full-screen overlay (slides up from bottom) */}
       {isMobile && (
-        <BotChat mobileOpen={chatOpen} onMobileClose={() => setChatOpen(false)} />
+        <div style={{
+          position: 'fixed', inset: 0,
+          zIndex: 400,
+          transform: chatOpen ? 'translateY(0)' : 'translateY(100%)',
+          transition: 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
+          paddingTop: '60px',
+        }}>
+          <BotChat onClose={() => setChatOpen(false)} />
+        </div>
       )}
 
-      {/* Mobile: floating chat FAB */}
-      {isMobile && !chatOpen && (
+      {/* Mobile: floating robot-head FAB */}
+      {isMobile && (
         <button
           onClick={() => setChatOpen(true)}
           style={{
             position: 'fixed', bottom: '24px', right: '20px',
-            zIndex: 400,
+            zIndex: 300,
             width: '54px', height: '54px',
             background: 'rgba(5,10,15,0.95)',
             border: '1.5px solid rgba(57,255,20,0.5)',
             borderRadius: '50%',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             boxShadow: '0 0 18px rgba(57,255,20,0.25)',
+            opacity: chatOpen ? 0 : 1,
+            pointerEvents: chatOpen ? 'none' : 'auto',
+            transition: 'opacity 0.2s',
           }}
         >
           <svg width='28' height='28' viewBox='0 0 32 32' fill='none'>
@@ -239,7 +250,6 @@ const V4Bio = ({ scrollAction }) => {
             <rect x='14.75' y='17.5' width='2.5' height='1.5' rx='0.3' fill='#39ff14' opacity='0.7'/>
             <rect x='18.5' y='17.5' width='2.5' height='1.5' rx='0.3' fill='#39ff14' opacity='0.7'/>
           </svg>
-          {/* Pulse ring */}
           <span style={{
             position: 'absolute', inset: '-4px',
             borderRadius: '50%',

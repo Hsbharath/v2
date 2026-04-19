@@ -89,7 +89,8 @@ const Msg = ({ role, text }) => (
   </div>
 );
 
-const BotChat = ({ mobileOpen, onMobileClose }) => {
+// onClose is only passed on mobile — clicking it minimizes back to FAB
+const BotChat = ({ onClose }) => {
   const isMobile = useIsMobile();
   const [messages, setMessages] = useState([
     { role: 'bot', text: "Hey! I'm Bharath's AI assistant. Ask me anything about his background, skills, experience, or how to reach him." },
@@ -130,27 +131,15 @@ const BotChat = ({ mobileOpen, onMobileClose }) => {
 
   const showSuggestions = messages.length <= 1;
 
-  // On mobile, only render when explicitly opened
-  if (isMobile && !mobileOpen) return null;
-
-  const mobileStyle = isMobile ? {
-    position: 'fixed',
-    inset: 0,
-    zIndex: 500,
-    clipPath: 'none',
-    border: 'none',
-    borderTop: '2px solid rgba(57,255,20,0.4)',
-  } : {};
-
   return (
     <div style={{
       display: 'flex', flexDirection: 'column',
       height: '100%', width: '100%',
       background: 'var(--surface)',
-      border: '1px solid rgba(57,255,20,0.2)',
+      border: isMobile ? 'none' : '1px solid rgba(57,255,20,0.2)',
+      borderTop: isMobile ? '2px solid rgba(57,255,20,0.4)' : undefined,
       overflow: 'hidden',
-      clipPath: 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px))',
-      ...mobileStyle,
+      clipPath: isMobile ? 'none' : 'polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px))',
     }}>
 
       {/* Header */}
@@ -174,8 +163,9 @@ const BotChat = ({ mobileOpen, onMobileClose }) => {
             <div className='status-dot' style={{ background: '#39ff14' }} />
             ACTIVE
           </div>
-          {isMobile && onMobileClose && (
-            <button onClick={onMobileClose} style={{
+          {/* Close button — only on mobile */}
+          {isMobile && onClose && (
+            <button onClick={onClose} style={{
               background: 'rgba(57,255,20,0.08)',
               border: '1px solid rgba(57,255,20,0.3)',
               color: '#39ff14',
@@ -203,13 +193,12 @@ const BotChat = ({ mobileOpen, onMobileClose }) => {
         <div ref={bottomRef} />
       </div>
 
-      {/* Suggestion chips — always visible until first interaction */}
+      {/* Suggestion chips */}
       {showSuggestions && (
         <div style={{
-          padding: '0 18px 12px',
+          padding: '12px 18px',
           display: 'flex', flexWrap: 'wrap', gap: '7px', flexShrink: 0,
           borderTop: '1px solid var(--border)',
-          paddingTop: '12px',
         }}>
           <div style={{ width: '100%', fontFamily: "'Share Tech Mono', monospace", fontSize: '0.55rem', color: 'var(--muted)', letterSpacing: '2px', marginBottom: '6px' }}>
             QUICK ASKS
